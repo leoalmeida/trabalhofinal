@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+	<meta name="form-detection" content="telephone=no" />
+	<meta name="x-rim-auto-match" content="none" forua="true" />
+    <link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="cssTrabalhoFinal.css" />
+    <title>ex1 layout</title>
+</head>
+
+<body>
+
+
+<div class="main" data-role="page" id="pageone">
+
+
+
+
+    <footer data-role="footer">
+        <p>
+            @WebPage 2016
+        </p>
+    </footer>
+</div>
+<div data-role="page" data-dialog="true" id="dialogo">
+    <header data-role="header">
+            <h1> Page 2 </h1>
+    </header>
+    <div class="ui-content" data-role="main">
+
+        <a class="ui-btn" href="#pageone" data-transition="flip" data-rel="back">Voltar</a>
+
+    </div>
+    <footer data-role="footer">
+        <p>
+            @WebPage 2016
+        </p>
+    </footer>
+</div>
+
+<pre>
+    "$('.list').filterTable({
+        inputSelector: '#search'
+        });"
+</pre>
+<script src="jquery.mobile-1.4.5/jquery-1.11.2.min.js"></script>
+<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js" ></script>
+<script src="jquery.mobile-1.4.5/cells-by-row.js" ></script>
+<script type="text/javascript">
+    $(document).ready(function(){ //Funções JQuery
+        $(".search-button").on("click", function (e) {
+            //$("h1").toggle();
+            $(".ui-input-search").animate({
+                width: 'toggle'
+            });
+            $(".search-input").trigger( "focus" );
+        });
+        $.mobile.pageContainer.on( "pagecontainershow", function (event, ui) {
+            $( function() {
+
+                // init Isotope
+                if ($.mobile.activePage.attr('id')=="pageone") {
+                    // quick search regex
+                    var qsRegex;
+                    var $grid = $('.caixas').isotope({
+                        itemSelector: '.element-item',
+                        layoutMode: 'fitRows',
+                        filter: function () {
+                            return qsRegex ? $(this).text().match(qsRegex) : true;
+                        }
+                    });
+
+                    // use value of search field to filter
+                    var $quicksearch = $('.search-input').keyup( debounce( function() {
+                        qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+                        $grid.isotope();
+                    }, 200 ) );
+
+                    // debounce so filtering doesn't happen every millisecond
+                    function debounce( fn, threshold ) {
+                        var timeout;
+                        return function debounced() {
+                            if ( timeout ) {
+                                clearTimeout( timeout );
+                            }
+                            function delayed() {
+                                fn();
+                                timeout = null;
+                            }
+                            timeout = setTimeout( delayed, threshold || 100 );
+                        }
+                    }
+
+                }else {
+                    $('.search-input').on("keyup", function() {
+                        var value = $(this).val();
+
+                        $("#fbody > tr").each(function(index) {
+                            if (index >= 0) {
+
+                                $row = $(this);
+
+                                var id = $row.find("td").text();
+
+                                if ((id.indexOf(value) > 0) || (value == "")) {
+                                    $(this).show();
+                                }
+                                else {
+                                    $(this).hide();
+                                }
+                            }
+                        })
+                    })
+                };
+
+            });
+        });
+    });
+
+</script>
+</body>
+
+</html>

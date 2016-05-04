@@ -1,0 +1,9 @@
+<div class="caixas">
+    <ul class="list-group" #searchText (teste)="myValueChange($event)">
+        <li *ngFor="#item of (list | imgFilter: filtername); #idx = index" class="element-item" >
+            <a href="#" accesskey="w" class="botao botao-primary botao-shadow" (click)="toggleMenu()" [routerLink]="[item.route]" data-toggle="tooltip" data-placement="up" title="{{item.nome}}" >
+                <img class="img-responsive center-block" src="{{item.linkImagem}}" alt="Img" />
+            </a>
+        </li>
+    </ul>
+</div>

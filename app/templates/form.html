@@ -1,0 +1,77 @@
+<div id="main">
+  <ol class="breadcrumb">
+      <li><a href="./">Trabalho Final</a></li>
+      <li>Cadastro</li>
+      <li><a href="./home">Clientes</a></li>
+      <li class="active">Form</li>
+  </ol>
+
+  <h2 class="sub-header">Novo Cliente</h2>
+
+  <div id="messages" class="alert alert-success" [hidden]="!messages" data-ng-bind="messages"></div>
+  <div [hidden]="!progress.active()" class"msg">Enviando&hellip;</div>
+  <section>
+    <form name="myForm" novalidate class="form-horizontal">
+        <!-- Informações Básicas -->
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+              <div class="panel panel-body panel-default">
+                <legend>
+                      <label class="control-label">Informações Básicas</label>
+                </legend>
+                <div class="form-group">
+                  <!-- TIPO DE CLIENTE -->
+                    <div class="col-xs-12">
+                        <div class="btn-group btn-group-justified" class="form-control has-feedback" required="required" >
+                            <label *ngFor="#tpcliente of tiposClientes" data-ng-init="novocliente.tipoCliente[$index]=false" class="btn btn-primary text-capitalize checkbox" [(ngModel)]="novocliente.tipoCliente[$index]" btn-checkbox="tpcliente.subtipo"><strong><i class="fa fa-paw" [hidden]="novocliente.tipoCliente[$index]"></i>&nbsp;{{tpcliente.valor}}</strong></label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="label label-danger" [hidden]="submitted && myForm.tiposClientes.$error.required">Obrigat&oacute;rio!</span>
+                    </div>
+                </div>
+                  <!-- CPF -->
+                <div class="form-group">
+                    <label for="cpf" class="col-md-4 control-label">CPF</label>
+                    <div class="col-md-8">
+                      <span class="label label-danger" [hidden]="submitted && myForm.cpf.$error.required">Obrigat&oacute;rio!</span>
+                      <span class="label label-danger" [hidden]="submitted && myForm.$error.cpf">CPF Inv&aacute;lido!</span>
+                    </div>
+                    <div class="col-xs-12 col-md-9">
+                      <input type="text" id="cpf" name="cpf" [(ngModel)]="novocliente.cpf" class="form-control has-feedback" required="required" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" />
+                    </div>
+                </div>
+                  <!-- Nome -->
+                <div class="form-group">
+                      <label for="nome" class="col-md-4 control-label">Nome</label>
+                      <div class="col-md-8">
+                        <span class="label label-danger" [hidden]="submitted && myForm.name.$error.required">Obrigat&oacute;rio!</span>
+                      </div>
+                      <div class="col-xs-12 col-md-9 ">
+                        <input type="text" id="nome" name="nome" [(ngModel)]="novocliente.nome" class="form-control has-feedback" required="required" placeholder="Nome" />
+                      </div>
+                </div>
+                  <!-- Email -->
+                <div class="form-group">
+                      <label for="email" class="col-md-4 control-label">Email</label>
+                      <div class="col-md-8">
+                        <span class="label label-danger" [hidden]="submitted && myForm.email.$error.required">Obrigat&oacute;rio!</span>
+                        <span class="label label-danger" [hidden]="submitted && myForm.$error.email">Email Inv&aacute;lido!</span>
+                      </div>
+                      <div class="col-xs-12 col-md-9 ">
+                        <div class="input-group input-group">
+                          <span class="input-group-addon">@</span>
+                          <input type="email" id="email" name="email" [(ngModel)]="novocliente.email" class="form-control has-feedback" required="required" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         </div>
+    </form>
+  </section>
+
+</div>
