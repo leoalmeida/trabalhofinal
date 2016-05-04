@@ -35,6 +35,8 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', "./home.
                 }
                 NavbarComponent.prototype.contructor = function () {
                 };
+                NavbarComponent.prototype.goback = function () {
+                };
                 NavbarComponent.prototype.toggle = function () {
                     this.showSearch = !this.showSearch;
                 };
@@ -56,6 +58,7 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', "./home.
                     core_1.Component({
                         selector: 'navbar',
                         templateUrl: 'app/templates/navbar.html',
+                        styleUrls: ['app/stylesheets/navbar.css'],
                         changeDetection: core_1.ChangeDetectionStrategy.OnPush,
                         directives: [router_1.RouterLink, common_1.CORE_DIRECTIVES, home_component_1.HomeComponent]
                     }), 

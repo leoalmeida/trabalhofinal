@@ -16,7 +16,7 @@ export class AppComponent {
     public menuItems: ItemDefinition[];
     searchText: string = " ";
     showSearch: boolean = false;
-    @Input() showMenu: boolean;
+    showMenu: boolean;
 
     constructor() {
         this.appRoutes = APP_ROUTES;

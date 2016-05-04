@@ -1,7 +1,5 @@
 <navbar [routes]="appRoutes" brand="Trabalho Final"></navbar>
 <div class="container-fluid">
-    <painel [routes]="appRoutes" [showMenu]="showMenu" [hidden]="!showMenu" ></painel>
     <router-outlet ></router-outlet>
+    <painel [routes]="appRoutes" [showMenu]="showMenu"></painel>
 </div>
-
-

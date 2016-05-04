@@ -1,70 +1,13 @@
 /* Main body */
-
-ul{ list-style:none; padding:0; margin: 0;}
-
-nav li:nth-child(1){
-    background: #eee;
-    color: black;
-    font-weight: bolder;
-    font-size: 1em;
-    border: .1em solid #EEDC7D;
+.main{
+    position: relative; /* needed for footer positioning*/
+    height: auto !important; /* real browsers */
+    min-height: 100%; /* real browsers */
+    padding-top: 100px;
 }
-
-nav li {
-    margin: .1em 0;
-}
-
-nav a {
-    width: 100%;
-}
-
-nav,aside{
-    background-color: #3A87AD;
-}
-
-article{
-    background-color: #5aad81;
-    height: 20em;
-}
-
-input:read-only,
-textarea:read-only{
-    cursor: not-allowed;
-    background: #c9c9c9;
-    color: #ff0000
-}
-
-.principal {
-    background-color: #fcf8e3;
-    padding: .2em .5em;
-    color: #ffffff;
-    clear: both;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -webkit-flex-direction: column;
-}
-
-.principal div{
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-}
-
-
-.principal > article,aside{
-    margin: .1em 0;
-    padding: .4em .8em;
-    color: #ffffff;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -webkit-flex: 1;
-}
-
 .caixas {
     color: #393;
     background: #dfd;
-    margin: 1%;
     width: auto;
     overflow: auto;
 }
@@ -82,14 +25,14 @@ textarea:read-only{
     border-radius: 0.4em;
 }
 
-.ui-dialog-contain{
-    max-width: 900px;
-}
-
 .round {
     -webkit-border-radius: .2em;
     -moz-border-radius: .2em;
     border-radius: .2em;
+}
+
+.botao-shadow {
+    box-shadow: 0em 0em 0.2em 0.2em #999;
 }
 
 /* DEF DE BOTOES COLORIDOS */

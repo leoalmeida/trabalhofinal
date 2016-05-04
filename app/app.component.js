@@ -41,10 +41,6 @@ System.register(['angular2/core', 'angular2/router', './app.routes', "./componen
                 AppComponent.prototype.toggle = function () {
                     this.showSearch = !this.showSearch;
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Boolean)
-                ], AppComponent.prototype, "showMenu", void 0);
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',

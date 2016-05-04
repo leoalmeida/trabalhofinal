@@ -5,7 +5,7 @@ import {Component, Input, ChangeDetectionStrategy, EventEmitter, Output} from 'a
 import {ItemDefinition} from "../models/item.model";
 import {CORE_DIRECTIVES} from "angular2/common";
 import {ImgFilterPipe} from "../filters/img-filter.pipe";
-import {RouterLink, RouteDefinition} from "angular2/router";
+import {RouterLink, RouteDefinition, OnActivate, ComponentInstruction} from "angular2/router";
 import {MENU_ITEMS} from "../app.routes";
 
 @Component({
@@ -16,16 +16,29 @@ import {MENU_ITEMS} from "../app.routes";
     directives: [RouterLink, CORE_DIRECTIVES],
     pipes: [ImgFilterPipe]
 })
-export class HomeComponent {
+export class HomeComponent implements OnActivate {
     @Input() routes: RouteDefinition[];
     @Input() list: ItemDefinition[];
     @Input() filtername: string;
     @Input() showMenu: boolean;
+    prev: ComponentInstruction;
+    next: ComponentInstruction;
 
+
+    routerOnActivate(next: ComponentInstruction, prev: ComponentInstruction) {
+        console.log('hello');
+        this.log = `Finished navigating from "${prev ? prev.urlPath : 'null'}" to "${next.urlPath}"`;
+        this.next = next;
+        this.prev = prev;
+    }
 
     constructor() {
         this.filtername = "";
         this.list = MENU_ITEMS;
+    }
+
+    goback(){
+        this.routes.navigateByUrl(this.prev.urlPath);
     }
 
     toggleMenu() {

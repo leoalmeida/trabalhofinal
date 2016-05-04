@@ -35,6 +35,15 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
                     this.filtername = "";
                     this.list = app_routes_1.MENU_ITEMS;
                 }
+                HomeComponent.prototype.routerOnActivate = function (next, prev) {
+                    console.log('hello');
+                    this.log = "Finished navigating from \"" + (prev ? prev.urlPath : 'null') + "\" to \"" + next.urlPath + "\"";
+                    this.next = next;
+                    this.prev = prev;
+                };
+                HomeComponent.prototype.goback = function () {
+                    this.routes.navigateByUrl(this.prev.urlPath);
+                };
                 HomeComponent.prototype.toggleMenu = function () {
                     this.showMenu = !this.showMenu;
                 };

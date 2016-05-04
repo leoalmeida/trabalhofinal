@@ -6,19 +6,18 @@
             </a>
 
             <a type="button" class="navbar-text navbar-left btn btn-link btn-lg" (click)="toggle()" [hidden]="showSearch" ><strong>Trabalho Final</strong></a>
-            <form class="navbar-form navbar-left" role="search" [hidden]="!showSearch">
+            <form class="navbar-form navbar-left form-search" role="search" [hidden]="!showSearch">
                 <div class="form-group">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <input class="form-control" type="text" ([ngModel])="searchText" (keypress)="eventHandler($event)" placeholder="Pesquisar..." />
+                    <input class="form-control input-lg" type="text" ([ngModel])="searchText" (keypress)="eventHandler($event)" placeholder="Pesquisar..." />
                 </div>
-                <button type="submit" class="botao botao-default botao-pequeno botao-shadow botao-round" (click)="toggle()" >
+                <button type="submit" class="botao botao-default botao-pequeno botao-shadow img-circle" (click)="toggle()" >
                     <i class="fa fa-close" aria-hidden="true"></i>
                 </button>
             </form>
-
-            <a [routerLink]="['Home']" class="botao botao-success botao-grande botao-shadow img-circle">
-                <i class="fa fa-chevron-left fa-fw" aria-hidden="true"></i>
-            </a>
         </div>
+        <a (click)="goback()" class="botao botao-success botao-grande botao-shadow img-circle back-btn">
+            <i class="fa fa-chevron-left fa-fw" aria-hidden="true"></i>
+        </a>
     </div>
 </nav>
