@@ -1,5 +1,13 @@
 <navbar [routes]="appRoutes" brand="Trabalho Final"></navbar>
 <div class="container-fluid">
-    <router-outlet ></router-outlet>
+    <router-outlet></router-outlet>
     <painel [routes]="appRoutes" [showMenu]="showMenu"></painel>
 </div>
+
+<a (click)="goback()" class="botao botao-default botao-grande botao-shadow img-circle fixed-btn-menu">
+    <i class="fa fa-chevron-left fa-fw" aria-hidden="true"></i>
+</a>
+
+<a (click)="goback()" class="botao botao-success botao-grande botao-shadow img-circle fixed-btn-back">
+    <i class="fa fa-chevron-left fa-fw" aria-hidden="true"></i>
+</a>

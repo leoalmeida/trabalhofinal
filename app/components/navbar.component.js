@@ -35,8 +35,6 @@ System.register(['angular2/core', 'angular2/common', 'angular2/router', "./home.
                 }
                 NavbarComponent.prototype.contructor = function () {
                 };
-                NavbarComponent.prototype.goback = function () {
-                };
                 NavbarComponent.prototype.toggle = function () {
                     this.showSearch = !this.showSearch;
                 };

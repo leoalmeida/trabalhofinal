@@ -1,7 +1,7 @@
-System.register(['./components/home.component', "./components/imagens.component", "./components/forms.component", "./components/links.component", "./models/item.model", "./components/info.component"], function(exports_1, context_1) {
+System.register(['./components/home.component', "./components/imagens.component", "./components/forms.component", "./components/links.component", "./models/item.model", "./components/info.component", "./components/table.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var home_component_1, imagens_component_1, forms_component_1, links_component_1, item_model_1, info_component_1;
+    var home_component_1, imagens_component_1, forms_component_1, links_component_1, item_model_1, info_component_1, table_component_1;
     var APP_ROUTES, MENU_ITEMS, IMAGE_ITEMS;
     return {
         setters:[
@@ -22,30 +22,30 @@ System.register(['./components/home.component', "./components/imagens.component"
             },
             function (info_component_1_1) {
                 info_component_1 = info_component_1_1;
+            },
+            function (table_component_1_1) {
+                table_component_1 = table_component_1_1;
             }],
         execute: function() {
             exports_1("APP_ROUTES", APP_ROUTES = [
                 { path: '/home', name: 'Home', component: home_component_1.HomeComponent },
                 { path: '/forms', name: 'Forms', component: forms_component_1.FormsComponent },
                 { path: '/imagens', name: 'Imagens', component: imagens_component_1.ImagensComponent },
+                { path: '/table', name: 'Table', component: table_component_1.TableComponent },
                 { path: '/info', name: 'Info', component: info_component_1.InfoComponent },
-                { path: '/github', name: 'Github', component: links_component_1.LinksComponent },
-                { path: '/css', name: 'CSS', component: links_component_1.LinksComponent },
-                { path: '/hbogo', name: 'HBOGo', component: links_component_1.LinksComponent },
-                { path: '/whatsapp', name: 'WhatsApp', component: links_component_1.LinksComponent },
-                { path: '/facebook', name: 'Facebook', component: links_component_1.LinksComponent },
-                { path: '/chrome', name: 'Chrome', component: links_component_1.LinksComponent }
+                { path: '/links', name: 'Links', component: links_component_1.LinksComponent },
             ]);
             exports_1("MENU_ITEMS", MENU_ITEMS = [
-                new item_model_1.ItemDefinition("Images", "/assets/imagens/Beach-96.png", "./Imagens"),
-                new item_model_1.ItemDefinition("Forms", "/assets/imagens/Form-96.png", "./Forms"),
-                new item_model_1.ItemDefinition("Info", "/assets/imagens/About-96.png", "./Info"),
-                new item_model_1.ItemDefinition("Github", "/assets/imagens/Github2-96.png", "./Github"),
-                new item_model_1.ItemDefinition("CSS", "/assets/imagens/CSS3-96.png", "./CSS"),
-                new item_model_1.ItemDefinition("HBO Go", "/assets/imagens/HBOGo-96.png", "./HBOGo"),
-                new item_model_1.ItemDefinition("WhatsApp", "/assets/imagens/WhatsApp-96.png", "./WhatsApp"),
-                new item_model_1.ItemDefinition("Facebook", "/assets/imagens/Facebook-96.png", "./Facebook"),
-                new item_model_1.ItemDefinition("Chrome", "/assets/imagens/Chrome-96.png", "./Chrome")
+                new item_model_1.ItemDefinition("Images", "/assets/imagens/Beach-96.png", "./Imagens", ""),
+                new item_model_1.ItemDefinition("Forms", "/assets/imagens/Form-96.png", "./Forms", ""),
+                new item_model_1.ItemDefinition("Table", "/assets/imagens/Grid-96.png", "./Table", ""),
+                new item_model_1.ItemDefinition("Info", "/assets/imagens/About-96.png", "./Info", ""),
+                new item_model_1.ItemDefinition("Github", "/assets/imagens/Github2-96.png", "./Links", "https://github.com/leoalmeida/trabalhofinal"),
+                new item_model_1.ItemDefinition("CSS", "/assets/imagens/CSS3-96.png", "./Links", "https://cssanimation.rocks/pt/"),
+                new item_model_1.ItemDefinition("HBO Go", "/assets/imagens/HBOGo-96.png", "./Links", "http://www.hbogo.com.br/"),
+                new item_model_1.ItemDefinition("WhatsApp", "/assets/imagens/WhatsApp-96.png", "./Links", "https://web.whatsapp.com/"),
+                new item_model_1.ItemDefinition("Facebook", "/assets/imagens/Facebook-96.png", "./Links", "http://www.facebook.com"),
+                new item_model_1.ItemDefinition("Chrome", "/assets/imagens/Chrome-96.png", "./Links", "https://www.google.com/chrome/")
             ]);
             exports_1("IMAGE_ITEMS", IMAGE_ITEMS = [
                 new item_model_1.ItemDefinition("Img1", "/assets/imgHD/apple-logo-white.jpg", "./Imagens"),

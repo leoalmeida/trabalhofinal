@@ -18,9 +18,6 @@ export class NavbarComponent{
 
     contructor(){
     }
-
-    goback(){
-    }
     
     toggle() {
         this.showSearch = !this.showSearch;

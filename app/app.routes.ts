@@ -5,30 +5,28 @@ import {FormsComponent} from "./components/forms.component";
 import {LinksComponent} from "./components/links.component";
 import {ItemDefinition} from "./models/item.model";
 import {InfoComponent} from "./components/info.component";
+import {TableComponent} from "./components/table.component";
 
 export var APP_ROUTES: RouteDefinition[] = [
     { path: '/home', name: 'Home', component: HomeComponent},
     { path: '/forms', name: 'Forms', component: FormsComponent },
     { path: '/imagens', name: 'Imagens', component: ImagensComponent },
+    { path: '/table', name: 'Table', component: TableComponent },
     { path: '/info', name: 'Info', component: InfoComponent },
-    { path: '/github', name: 'Github', component: LinksComponent },
-    { path: '/css', name: 'CSS', component: LinksComponent },
-    { path: '/hbogo', name: 'HBOGo', component: LinksComponent },
-    { path: '/whatsapp', name: 'WhatsApp', component: LinksComponent },
-    { path: '/facebook', name: 'Facebook', component: LinksComponent },
-    { path: '/chrome', name: 'Chrome', component: LinksComponent }
+    { path: '/links', name: 'Links', component: LinksComponent },
 ];
 
 export var MENU_ITEMS: ItemDefinition[] = [
-    new ItemDefinition("Images","/assets/imagens/Beach-96.png","./Imagens"),
-    new ItemDefinition("Forms","/assets/imagens/Form-96.png","./Forms"),
-    new ItemDefinition("Info","/assets/imagens/About-96.png","./Info"),
-    new ItemDefinition("Github","/assets/imagens/Github2-96.png","./Github"),
-    new ItemDefinition("CSS","/assets/imagens/CSS3-96.png","./CSS"),
-    new ItemDefinition("HBO Go","/assets/imagens/HBOGo-96.png","./HBOGo"),
-    new ItemDefinition("WhatsApp","/assets/imagens/WhatsApp-96.png","./WhatsApp"),
-    new ItemDefinition("Facebook","/assets/imagens/Facebook-96.png","./Facebook"),
-    new ItemDefinition("Chrome","/assets/imagens/Chrome-96.png","./Chrome")
+    new ItemDefinition("Images","/assets/imagens/Beach-96.png","./Imagens",""),
+    new ItemDefinition("Forms","/assets/imagens/Form-96.png","./Forms",""),
+    new ItemDefinition("Table","/assets/imagens/Grid-96.png","./Table",""),
+    new ItemDefinition("Info","/assets/imagens/About-96.png","./Info",""),
+    new ItemDefinition("Github","/assets/imagens/Github2-96.png","./Links","https://github.com/leoalmeida/trabalhofinal"),
+    new ItemDefinition("CSS","/assets/imagens/CSS3-96.png","./Links","https://cssanimation.rocks/pt/"),
+    new ItemDefinition("HBO Go","/assets/imagens/HBOGo-96.png","./Links","http://www.hbogo.com.br/"),
+    new ItemDefinition("WhatsApp","/assets/imagens/WhatsApp-96.png","./Links","https://web.whatsapp.com/"),
+    new ItemDefinition("Facebook","/assets/imagens/Facebook-96.png","./Links","http://www.facebook.com"),
+    new ItemDefinition("Chrome","/assets/imagens/Chrome-96.png","./Links","https://www.google.com/chrome/")
 ];
 
 export var IMAGE_ITEMS: ItemDefinition[] = [

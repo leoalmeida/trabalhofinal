@@ -1,12 +1,14 @@
-<span class="main" [hidden]="!showMenu" >
-    <h1 class="text-center"><strong>Menu Principal</strong></h1>
-    <div class="caixas">
-        <ul class="list-group" #searchText (teste)="myValueChange($event)">
-            <li *ngFor="#item of (list | imgFilter: filtername); #idx = index" class="element-item" >
-                <a href="#" accesskey="w" class="btn btn-primary botao-shadow" (click)="toggleMenu()" [routerLink]="[item.route]" data-toggle="tooltip" data-placement="up" title="{{item.nome}}" >
-                    <img class="img-responsive center-block" src="{{item.linkImagem}}" alt="Img" />
-                </a>
-            </li>
-        </ul>
+<div id="painel" class="panel panel-success round main" [hidden]="!showMenu" >
+    <div class="panel-heading">
+        <strong><strong>Menu Principal</strong></strong>
     </div>
-</span>
+    <div class="panel-body caixas">
+            <ul class="list-group" #searchText (teste)="myValueChange($event)">
+                <li *ngFor="#item of (list | imgFilter: filtername); #idx = index" class="element-item" >
+                    <a href="#" accesskey="w" class="btn btn-primary botao-shadow" (click)="goExternal(item.externalLink)" [routerLink]="[item.route]" data-toggle="tooltip" data-placement="up" title="{{item.nome}}" >
+                        <img class="img-responsive center-block" src="{{item.linkImagem}}" alt="Img" />
+                    </a>
+                </li>
+            </ul>
+    </div>
+</div>

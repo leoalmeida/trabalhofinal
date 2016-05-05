@@ -3,8 +3,11 @@
     position: relative; /* needed for footer positioning*/
     height: auto !important; /* real browsers */
     min-height: 100%; /* real browsers */
-    padding-top: 100px;
+    padding: 0;
 }
+
+ul{ list-style:none; padding:0; margin: 0;}
+
 .caixas {
     color: #393;
     background: #dfd;
@@ -25,22 +28,11 @@
     border-radius: 0.4em;
 }
 
-.round {
-    -webkit-border-radius: .2em;
-    -moz-border-radius: .2em;
-    border-radius: .2em;
-}
-
-.botao-shadow {
-    box-shadow: 0em 0em 0.2em 0.2em #999;
-}
-
 /* DEF DE BOTOES COLORIDOS */
 .accesskey{
     font-weight: bolder;
     font-style: italic;
 }
-
 
 /* Tablet */
 @media (min-width:37em) {
