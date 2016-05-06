@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './app.routes', "./components/home.component", "./components/navbar.component"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', "./components/navbar.component", "./services/logger.service", "./components/menuRouter.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './app.routes', "./componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, app_routes_1, home_component_1, navbar_component_1;
+    var core_1, router_1, navbar_component_1, logger_service_1, menuRouter_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,48 +20,37 @@ System.register(['angular2/core', 'angular2/router', './app.routes', "./componen
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (app_routes_1_1) {
-                app_routes_1 = app_routes_1_1;
-            },
-            function (home_component_1_1) {
-                home_component_1 = home_component_1_1;
-            },
             function (navbar_component_1_1) {
                 navbar_component_1 = navbar_component_1_1;
+            },
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
+            },
+            function (menuRouter_component_1_1) {
+                menuRouter_component_1 = menuRouter_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(router) {
+                function AppComponent(router, logger) {
                     this.router = router;
-                    this.searchText = " ";
-                    this.showSearch = false;
-                    this.appRoutes = app_routes_1.APP_ROUTES;
-                    this.menuItems = app_routes_1.MENU_ITEMS;
-                    this.showMenu = true;
+                    this.logger = logger;
                 }
-                AppComponent.prototype.routerOnActivate = function (next, prev) {
-                    console.log('hello');
-                    this.log = "Finished navigating from \"" + (prev ? prev.urlPath : 'null') + "\" to \"" + next.urlPath + "\"";
-                    this.next = next;
-                    this.prev = prev;
-                };
-                AppComponent.prototype.goback = function () {
-                    this.routes.navigateByUrl(this.prev.urlPath);
-                };
-                AppComponent.prototype.toggle = function () {
-                    this.showSearch = !this.showSearch;
-                };
                 AppComponent.prototype.ngOnInit = function () {
                     this.router.navigate(['/home']);
+                };
+                AppComponent.prototype.routerOnActivate = function (curr) {
+                    this.curSegment = curr;
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'main-app',
                         templateUrl: 'app/templates/app.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent, home_component_1.HomeComponent]
+                        directives: [router_1.ROUTER_DIRECTIVES, navbar_component_1.NavbarComponent]
                     }),
-                    router_1.RouteConfig(app_routes_1.APP_ROUTES), 
-                    __metadata('design:paramtypes', [router_1.Router])
+                    router_1.Routes([
+                        { path: '/home', component: menuRouter_component_1.MenuRouterComponent }
+                    ]), 
+                    __metadata('design:paramtypes', [router_1.Router, logger_service_1.LoggerService])
                 ], AppComponent);
                 return AppComponent;
             }());
@@ -69,4 +58,5 @@ System.register(['angular2/core', 'angular2/router', './app.routes', "./componen
         }
     }
 });
+
 //# sourceMappingURL=app.component.js.map

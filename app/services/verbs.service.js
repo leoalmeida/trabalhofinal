@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var VerbsService;
+    var core_1, http_1;
+    var VerbDefinition, VerbsService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
-            VerbsService = (function () {
-                function VerbsService() {
+            VerbDefinition = (function () {
+                function VerbDefinition(nome) {
+                    this.nome = nome;
+                    this.id = ++VerbDefinition.qtItens;
                 }
-                VerbsService.prototype.getVerbs = function (http) {
-                    this.verbs = http.get('api/verbs.json')
-                        .map(function (response) { return response.json(); });
+                VerbDefinition.prototype.filter = function (list, filterOption) {
+                    return list;
                 };
+                VerbDefinition.qtItens = 0;
+                return VerbDefinition;
+            }());
+            VerbsService = (function () {
+                function VerbsService(http) {
+                    this.http = http;
+                    this.heroesUrl = 'app/apis/verbs'; // URL to web api
+                }
                 VerbsService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], VerbsService);
                 return VerbsService;
             }());
@@ -35,4 +47,5 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         }
     }
 });
+
 //# sourceMappingURL=verbs.service.js.map

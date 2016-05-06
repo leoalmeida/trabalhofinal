@@ -15822,7 +15822,3 @@ declare module _ {
         cancel(): void;
     }
 }
-
-declare module "lodash" {
-    export = _;
-}

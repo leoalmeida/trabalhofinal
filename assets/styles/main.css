@@ -6534,7 +6534,7 @@ input[type="checkbox"],
   font-family: "Roboto";
   src: url("../fonts/Roboto/Roboto-Regular-webfont.eot svg ttf woff") format("eot svg ttf woff"); }
 
-painel {
+.painel {
   margin: 0;
   padding: 0;
   height: 100%; }
@@ -6550,13 +6550,13 @@ painel {
   padding: 2px 15px;
   height: 32px; }
 
-.fixed-btn-back {
+.fixed-btn-menu {
   position: fixed;
   right: 30px;
   top: 20px;
   z-index: 3000; }
 
-.fixed-btn-menu {
+.fixed-btn-back {
   position: fixed;
   right: 100px;
   top: 20px;
@@ -6612,8 +6612,8 @@ painel {
 
 .center-fix {
   position: fixed;
-  top: 48%;
-  left: 48%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; }
 

@@ -1,5 +1,5 @@
 <section class="galeria">
-        <div *ngFor="#item of imageList; #idx = index" >
+        <div *ngFor="let item of imageList; let idx = index" >
                 <img  src="{{item.linkImagem}}" />
         </div>
 </section>

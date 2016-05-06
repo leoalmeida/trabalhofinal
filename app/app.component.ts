@@ -1,50 +1,31 @@
-import {Component, Input, OnInit} from 'angular2/core';
-import {
-    RouterOutlet, RouteConfig, RouteDefinition, ROUTER_DIRECTIVES, Router, OnActivate,
-    ComponentInstruction
-} from 'angular2/router';
-import {APP_ROUTES, MENU_ITEMS} from './app.routes';
-import {HomeComponent} from "./components/home.component";
+import {Component, OnInit} from '@angular/core';
+import {Routes, ROUTER_DIRECTIVES, Router, OnActivate, RouteSegment, Route} from '@angular/router';
+import {APP_ROUTES, MENU_ROUTES} from './app.routes';
 import {NavbarComponent} from "./components/navbar.component";
-import {ItemDefinition} from "./models/item.model";
+import {LoggerService} from "./services/logger.service";
+import {MenuRouterComponent} from "./components/menuRouter.component";
 
 @Component({
     selector: 'main-app',
     templateUrl: 'app/templates/app.html',
-    directives: [ROUTER_DIRECTIVES, NavbarComponent, HomeComponent]
+    directives: [ROUTER_DIRECTIVES, NavbarComponent]
 })
-@RouteConfig(APP_ROUTES)
+@Routes([
+    {path: '/home', component: MenuRouterComponent}
+])
 export class AppComponent implements OnInit, OnActivate {
-    public appRoutes: RouteDefinition[];
-    public menuItems: ItemDefinition[];
-    searchText: string = " ";
-    showSearch: boolean = false;
-    showMenu: boolean;
-    prev: ComponentInstruction;
-    next: ComponentInstruction;
+    private logger: LoggerService;
+    private curSegment: RouteSegment;
 
-    constructor(private router: Router) {
-        this.appRoutes = APP_ROUTES;
-        this.menuItems = MENU_ITEMS;
-        this.showMenu = true;
-    }
-
-    routerOnActivate(next: ComponentInstruction, prev: ComponentInstruction) {
-        console.log('hello');
-        this.log = `Finished navigating from "${prev ? prev.urlPath : 'null'}" to "${next.urlPath}"`;
-        this.next = next;
-        this.prev = prev;
-    }
-
-    goback(){
-        this.routes.navigateByUrl(this.prev.urlPath);
-    }
-
-    toggle() {
-        this.showSearch = !this.showSearch;
+    constructor(private router: Router, logger: LoggerService) {
+        this.logger = logger;
     }
 
     ngOnInit() {
         this.router.navigate(['/home']);
+    }
+
+    routerOnActivate(curr: RouteSegment) {
+        this.curSegment = curr;
     }
 }

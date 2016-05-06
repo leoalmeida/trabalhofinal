@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe", "angular2/router", "../app.routes", 'ng2-bs3-modal/ng2-bs3-modal'], function(exports_1, context_1) {
+System.register(['@angular/core', "@angular/common", "../services/Image.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, img_filter_pipe_1, router_1, app_routes_1, ng2_bs3_modal_1;
+    var core_1, common_1, Image_service_1;
     var ImagensComponent;
     return {
         setters:[
@@ -20,27 +20,19 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
             function (common_1_1) {
                 common_1 = common_1_1;
             },
-            function (img_filter_pipe_1_1) {
-                img_filter_pipe_1 = img_filter_pipe_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
-            function (app_routes_1_1) {
-                app_routes_1 = app_routes_1_1;
-            },
-            function (ng2_bs3_modal_1_1) {
-                ng2_bs3_modal_1 = ng2_bs3_modal_1_1;
+            function (Image_service_1_1) {
+                Image_service_1 = Image_service_1_1;
             }],
         execute: function() {
             ImagensComponent = (function () {
-                function ImagensComponent() {
-                    this.filtername = "";
-                    this.imageList = app_routes_1.IMAGE_ITEMS;
+                function ImagensComponent(service) {
+                    this.service = service;
                 }
-                ImagensComponent.prototype.close = function () {
-                    this.modal.close();
+                ImagensComponent.prototype.getImages = function () {
+                    var _this = this;
+                    this.service.getAllImageItems().then(function (imageList) { return _this.imageList = imageList; });
                 };
+                ImagensComponent.prototype.ngOnInit = function () { this.getImages(); };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)
@@ -50,11 +42,10 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
                         selector: 'imagens',
                         templateUrl: 'app/templates/imagens.html',
                         styleUrls: ['app/stylesheets/imagens.css'],
-                        changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-                        directives: [router_1.RouterLink, common_1.CORE_DIRECTIVES, ng2_bs3_modal_1.MODAL_DIRECTIVES],
-                        pipes: [img_filter_pipe_1.ImgFilterPipe]
+                        directives: [common_1.CORE_DIRECTIVES],
+                        providers: [Image_service_1.ImageService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [Image_service_1.ImageService])
                 ], ImagensComponent);
                 return ImagensComponent;
             }());
@@ -62,4 +53,5 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
         }
     }
 });
+
 //# sourceMappingURL=imagens.component.js.map

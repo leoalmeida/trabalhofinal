@@ -6,11 +6,27 @@ var path = require('path');
 
 /* Initialize TS Project */
 var typingFiles = [
-    'typings/browser.d.ts',
-    'node_modules/angular2/typings/browser.d.ts'
+    'typings/browser.d.ts'
 ];
 
-/* Lint typescripts */
+var tsFiles = [].concat(config.tsFiles);
+
+/* Watch changed typescripts file and compile it */
+gulp.task('watch-ts', function () {
+    return gulp.watch(tsFiles, function (file) {
+        console.log('Compiling ' + file.path + '...');
+        return compileTs(file.path, true);
+    });
+});
+
+/* Compile typescripts */
+gulp.task('tsc', ['clean-ts'], function () {
+    return compileTs(tsFiles);
+});
+
+gulp.task('tsc-app', ['clean-ts-app'], function () {
+    return compileTs(config.tsFiles);
+});
 
 function compileTs(files, watchMode) {
     watchMode = watchMode || false;

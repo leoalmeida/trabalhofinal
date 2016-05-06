@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,34 +11,31 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var ImgFilterPipe;
+    var MenuFilterPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            //import _ from 'lodash';
-            ImgFilterPipe = (function () {
-                function ImgFilterPipe() {
+            MenuFilterPipe = (function () {
+                function MenuFilterPipe() {
                 }
-                ImgFilterPipe.prototype.transform = function (items, filter) {
-                    if (filter.trim().length <= 0) {
+                MenuFilterPipe.prototype.transform = function (items, filteredItems) {
+                    if (filteredItems.trim().length <= 0) {
                         return items;
                     }
-                    return items.filter(function (item) { return (item.nome.indexOf(filter) > -1); });
-                    //return _.filter(items, {filter});
+                    return items.filter(function (returned) { return (returned.nome.indexOf(filteredItems) > -1); });
                 };
-                ImgFilterPipe = __decorate([
-                    core_1.Pipe({
-                        name: 'imgFilter'
-                    }), 
+                MenuFilterPipe = __decorate([
+                    core_1.Pipe({ name: 'menuFilter' }), 
                     __metadata('design:paramtypes', [])
-                ], ImgFilterPipe);
-                return ImgFilterPipe;
+                ], MenuFilterPipe);
+                return MenuFilterPipe;
             }());
-            exports_1("ImgFilterPipe", ImgFilterPipe);
+            exports_1("MenuFilterPipe", MenuFilterPipe);
         }
     }
 });
-//# sourceMappingURL=img-filter.pipe.js.map
+
+//# sourceMappingURL=menu-filter.pipe.js.map

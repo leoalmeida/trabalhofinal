@@ -1,15 +1,8 @@
 <div id="main">
-  <ol class="breadcrumb">
-      <li><a href="./">Trabalho Final</a></li>
-      <li>Cadastro</li>
-      <li><a href="./home">Clientes</a></li>
-      <li class="active">Form</li>
-  </ol>
-
-  <h2 class="sub-header">Novo Cliente</h2>
+    <h2 class="sub-header">Novo Cliente</h2>
 
   <div id="messages" class="alert alert-success" [hidden]="!messages" data-ng-bind="messages"></div>
-  <div [hidden]="!progress.active()" class"msg">Enviando&hellip;</div>
+  <div [hidden]="!progress.active()" class="msg"> Enviando&hellip;</div>
   <section>
     <form name="myForm" novalidate class="form-horizontal">
         <!-- Informações Básicas -->
@@ -23,8 +16,21 @@
                 <div class="form-group">
                   <!-- TIPO DE CLIENTE -->
                     <div class="col-xs-12">
-                        <div class="btn-group btn-group-justified" class="form-control has-feedback" required="required" >
-                            <label *ngFor="#tpcliente of tiposClientes" data-ng-init="novocliente.tipoCliente[$index]=false" class="btn btn-primary text-capitalize checkbox" [(ngModel)]="novocliente.tipoCliente[$index]" btn-checkbox="tpcliente.subtipo"><strong><i class="fa fa-paw" [hidden]="novocliente.tipoCliente[$index]"></i>&nbsp;{{tpcliente.valor}}</strong></label>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" [(ngModel)]="novocliente.tipoCliente" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Tipo de Cliente
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#">Locador</a></li>
+                                        <li><a href="#">Locatário</a></li>
+                                        <li><a href="#">Fiador</a></li>
+                                        <li><a href="#">Outro</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -69,9 +75,197 @@
               </div>
             </div>
           </div>
-
          </div>
+
+        <!-- Telefones -->
+        <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+                <div class="panel panel-body panel-default">
+                    <legend>
+                        <label for="telefones" class="control-label">Telefones</label>
+                        <span class="label label-danger" data-ng-show="submitted && myForm.tel.$error.required">Obrigat&oacute;rio!</span>
+                        <span class="label label-danger" data-ng-show="submitted && myForm.$error.tel">Telefone inv&aacute;lido!</span>
+                    </legend>
+                    <!-- Tipo de Telefone -->
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label for="tpTelefone" class="control-label">Tipo de Telefone:</label>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Tipo de Telefone
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><a href="#">Residencial</a></li>
+                                    <li><a href="#">Celular</a></li>
+                                    <li><a href="#">Corporativo</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-lg-8">
+                            <div class="input-group">
+                                <span class="input-group-addon" ><i class="fa fa-phone fa-fw"></i></span>
+                                <input type="text" id="tel" data-ng-model="telefone.numero" class="form-control" required="required" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- Painel Telefones -->
+            </div>
+        </div><!-- Div Telefones -->
+
+        <!-- Endereço -->
+        <div class="col-xs-12">
+            <!-- Form Name -->
+            <div class="form-group">
+                <div class="panel panel-body panel-default">
+                    <!-- Header -->
+                    <legend>
+                        <label for="enderecos" class="control-label">Endere&ccedil;os</label>
+                    </legend>
+                    <!-- Formulario -->
+                    <div class="col-xs-12 col-md-6">
+                        <!-- Tipo de Endereço -->
+                        <div class="form-group">
+                            <label for="tpEndereco" class="control-label">Tipo de Endereço:</label>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Tipo de Endereço
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                            <li><a href="#">Residencial</a></li>
+                                            <li><a href="#">Corporativo</a></li>
+                                            <li><a href="#">Outro</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tipo de Imóvel -->
+                        <div class="form-group">
+                            <label for="tpImovel" class="control-label">Tipo de Residência:</label>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Tipo do Imóvel
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                            <li><a href="#">Alugado/Contrato</a></li>
+                                            <li><a href="#">Alugado/Temporada</a></li>
+                                            <li><a href="#">Próprio</a></li>
+                                            <li><a href="#">Parente</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CEP -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="cep">CEP</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input id="cep" name="cep" type="text" placeholder="CEP" class="form-control" data-ng-model="endereco.cep" ng-blur="getCEP()" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rua -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 control-label" for="textinput">Rua</label>
+                                <div class="col-xs-12">
+                                    <input name="rua" type="text" placeholder="Rua" class="form-control" data-ng-model="endereco.rua" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Número -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="textinput">N&uacute;mero</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input name="numero" type="text" placeholder="N&uacute;mero" class="form-control" data-ng-model="endereco.numero" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complemento -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="textinput">Complemento</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input id="complemento" name="complemento" type="text" placeholder="Complemento" class="form-control" data-ng-model="endereco.complemento">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bairro -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="textinput">Bairro</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control" data-ng-model="endereco.bairro" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cidade -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="textinput">Cidade</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control" data-ng-model="endereco.cidade" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estado -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="textinput">Estado</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input id="uf" name="uf" type="text" placeholder="Estado" class="form-control" data-ng-model="endereco.uf" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- País -->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-xs-12 col-md-2 control-label" for="pais">Pa&iacute;s</label>
+                                <div class="col-xs-12 col-md-10">
+                                    <input name="pais" type="text" placeholder="Pa&iacute;s" class="form-control" data-ng-model="endereco.pais" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Validação do Formulário -->
+                        <div class="form-group">
+                            <div class="row">
+                                <span class="label label-danger" data-ng-show="submitted && myForm.form.$error.required">Obrigat&oacute;rio!</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="well" data-ng-show="submitted && myForm.endereco.$error">
+                        <span class="label label-danger" data-ng-show="submitted && myForm.endereco.tipo.$error.required">Obrigat&oacute;rio!</span>
+                        <span class="label label-danger" data-ng-show="submitted && myForm.endereco.tipoImovel.$error.required">Obrigat&oacute;rio!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
   </section>
-
 </div>

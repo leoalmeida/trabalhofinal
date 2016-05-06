@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/models/cliente.model.ts"],"names":[],"mappings":";;;;;;;YAKA;gBAgBI;oBACI,IAAI,CAAC,EAAE,GAAG,EAAE,iBAAiB,CAAC,UAAU,CAAC;gBAC7C,CAAC;gBAED,kCAAM,GAAN,UAAO,IAAuB,EAAE,YAAoB;oBAChD,MAAM,CAAC,IAAI,CAAC;gBAChB,CAAC;gBARK,4BAAU,GAAW,CAAC,CAAC;gBAUjC,wBAAC;YAAD,CAxBA,AAwBC,IAAA;YAxBD,iDAwBC,CAAA","file":"app/models/cliente.model.js","sourceRoot":"../.."}

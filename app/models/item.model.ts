@@ -18,4 +18,8 @@ export class ItemDefinition {
         this.externalLink = externalLink;
     }
 
+    filter(list: ItemDefinition, filterOption: string){
+        return list;
+    }
+
 }

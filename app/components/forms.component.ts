@@ -1,7 +1,8 @@
 /**
  * Created by LeonardoAlmeida on 02/05/16.
  */
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
+import {ClienteDefinition} from "../models/cliente.model";
 
 @Component({
     selector: 'forms',
@@ -11,4 +12,5 @@ import {Component} from 'angular2/core';
     ]
 })
 export class FormsComponent {
+    public novocliente: ClienteDefinition;
 }

@@ -4,11 +4,13 @@
     </div>
     <div class="panel-body caixas">
             <ul class="list-group" #searchText (teste)="myValueChange($event)">
-                <li *ngFor="#item of (list | imgFilter: filtername); #idx = index" class="element-item" >
-                    <a href="#" accesskey="w" class="btn btn-primary botao-shadow" (click)="goExternal(item.externalLink)" [routerLink]="[item.route]" data-toggle="tooltip" data-placement="up" title="{{item.nome}}" >
+                <li *ngFor="let item of list; let idx=index" class="element-item" >
+                    <a accesskey="w" class="btn btn-primary botao-shadow" (click)="onSelect(item)" data-toggle="tooltip" data-placement="up" title="{{item.nome}}" >
                         <img class="img-responsive center-block" src="{{item.linkImagem}}" alt="Img" />
                     </a>
                 </li>
             </ul>
     </div>
 </div>
+
+<router-outlet name="homeOutlet"></router-outlet>

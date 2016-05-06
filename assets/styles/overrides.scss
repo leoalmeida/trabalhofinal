@@ -1,4 +1,4 @@
-painel {
+.painel {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -19,14 +19,14 @@ painel {
 }
 
 
-.fixed-btn-back{
+.fixed-btn-menu{
   position: fixed;
   right: 30px;
   top: 20px;
   z-index: 3000;
 }
 
-.fixed-btn-menu{
+.fixed-btn-back{
   position: fixed;
   right: 100px;
   top: 20px;

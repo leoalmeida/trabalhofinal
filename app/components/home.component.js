@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe", "angular2/router", "../app.routes"], function(exports_1, context_1) {
+System.register(['@angular/core', "@angular/common", "@angular/router", "../services/menu.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, img_filter_pipe_1, router_1, app_routes_1;
+    var core_1, common_1, router_1, menu_service_1;
     var HomeComponent;
     return {
         setters:[
@@ -20,38 +20,44 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
             function (common_1_1) {
                 common_1 = common_1_1;
             },
-            function (img_filter_pipe_1_1) {
-                img_filter_pipe_1 = img_filter_pipe_1_1;
-            },
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (app_routes_1_1) {
-                app_routes_1 = app_routes_1_1;
+            function (menu_service_1_1) {
+                menu_service_1 = menu_service_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
-                function HomeComponent() {
+                function HomeComponent(service, router) {
+                    this.service = service;
+                    this.router = router;
                     this.filtername = "";
-                    this.list = app_routes_1.MENU_ITEMS;
                 }
                 HomeComponent.prototype.toggleMenu = function () {
                     this.showMenu = !this.showMenu;
                 };
-                HomeComponent.prototype.openRoute = function (itemEscolhido) {
-                    this.showMenu = false;
-                };
                 HomeComponent.prototype.goExternal = function (link) {
                     window.location.href = link;
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Array)
-                ], HomeComponent.prototype, "routes", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Array)
-                ], HomeComponent.prototype, "list", void 0);
+                HomeComponent.prototype.routerOnActivate = function (curr, prev, currTree) {
+                    var _this = this;
+                    this.currSegment = curr;
+                    this.selectedId = +currTree.parent(curr).getParam('id');
+                    this.service.getAllMenuItems().then(function (list) { return _this.list = list; });
+                };
+                HomeComponent.prototype.onSelect = function (item) {
+                    if (item.externalLink) {
+                        this.router.navigate([item.externalLink]);
+                    }
+                    else {
+                        this.router.navigate([("./" + item.route)], this.currSegment);
+                    }
+                };
+                HomeComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this.service.getAllMenuItems().then(function (list) { return _this.list = list; });
+                    this.showMenu = true;
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)
@@ -65,11 +71,10 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
                         selector: 'painel',
                         templateUrl: 'app/templates/home.html',
                         styleUrls: ['app/stylesheets/home.css'],
-                        changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-                        directives: [router_1.RouterLink, common_1.CORE_DIRECTIVES],
-                        pipes: [img_filter_pipe_1.ImgFilterPipe]
+                        directives: [common_1.CORE_DIRECTIVES],
+                        providers: [menu_service_1.MenuService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [menu_service_1.MenuService, router_1.Router])
                 ], HomeComponent);
                 return HomeComponent;
             }());
@@ -77,4 +82,5 @@ System.register(['angular2/core', "angular2/common", "../filters/img-filter.pipe
         }
     }
 });
+
 //# sourceMappingURL=home.component.js.map

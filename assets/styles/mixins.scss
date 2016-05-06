@@ -3,13 +3,13 @@
     $path: '../fonts/' + $path;
 
     $extmods: (
-        eot: "?",
-        svg: "#"
+            eot: "?",
+            svg: "#"
     );
 
     $formats: (
-        otf: "opentype",
-        ttf: "truetype"
+            otf: "opentype",
+            ttf: "truetype"
     );
 
     @each $ext in $exts {

@@ -16,6 +16,9 @@ System.register([], function(exports_1, context_1) {
                     this.route = route;
                     this.externalLink = externalLink;
                 }
+                ItemDefinition.prototype.filter = function (list, filterOption) {
+                    return list;
+                };
                 ItemDefinition.qtItens = 0;
                 return ItemDefinition;
             }());
@@ -23,4 +26,5 @@ System.register([], function(exports_1, context_1) {
         }
     }
 });
+
 //# sourceMappingURL=item.model.js.map
