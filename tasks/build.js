@@ -40,7 +40,7 @@ gulp.task('build-sjs', function (done) {
 
 /* Concat and minify/uglify all css, js, and copy fonts */
 gulp.task('build-assets', function (done) {
-    runSequence('clean-build', ['sass', 'fonts'], function () {
+    runSequence('clean-build', ['sass', 'fonts', 'others'], function () {
         done();
 
         gulp.src(config.app + '**/*.html', {
@@ -54,10 +54,24 @@ gulp.task('build-assets', function (done) {
         .pipe(cssnano())
         .pipe(gulp.dest(config.build.app));
 
+        gulp.src(config.app + '**/*.json', {
+                base: config.app
+            })
+            .pipe(gulp.dest(config.build.app));
+
+        gulp.src(config.app + '**/*-data.ts', {
+                base: config.app
+            })
+            .pipe(gulp.dest(config.build.app));
+
+        gulp.src(config.app + 'favicon.png', {
+                base: config.app
+            })
+            .pipe(gulp.dest(config.build.app));
+
         gulp.src(config.assetsPath.images + '**/*.*', {
             base: config.assetsPath.images
-        })
-        .pipe(gulp.dest(config.build.assetPath + 'images'));
+        });
 
         return gulp.src(config.index)
             .pipe(useref())
@@ -78,4 +92,18 @@ gulp.task('fonts', function () {
 
     gulp.src(['node_modules/font-awesome/fonts/*.*'])
     .pipe(gulp.dest(config.build.fonts));
+});
+
+gulp.task('others', function () {
+    gulp.src(config.assetsPath.images + '**/*.*', {
+            base: config.assetsPath.images})
+        .pipe(gulp.dest(config.build.images));
+
+    gulp.src(config.assetsPath.imgHD + '**/*.*', {
+            base: config.assetsPath.imgHD})
+        .pipe(gulp.dest(config.build.imgHD));
+
+    gulp.src(config.root + 'favicon.png', {
+            base: config.root})
+        .pipe(gulp.dest(config.build.path));
 });

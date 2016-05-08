@@ -9,7 +9,8 @@ module.exports = function () {
     var assets = root + 'assets/';
     var assetsPath = {
         styles: assets + 'styles/',
-        images: assets + 'images/',
+        images: assets + 'imagens/',
+        imgHD: assets + 'imgHD/',
         fonts: assets + 'fonts/'
     };
     var index = root + 'index.html';
@@ -22,9 +23,12 @@ module.exports = function () {
         helper: [testHelper + '**/*.ts']
     };
     var build = {
+        favicon: 'build/favicon.png',
         path: 'build/',
         app: 'build/app/',
         fonts: 'build/fonts',
+        images: 'build/assets/imagens',
+        imgHD: 'build/assets/imgHD',
         assetPath: 'build/assets/',
         assets: {
             lib: {
