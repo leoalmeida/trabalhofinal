@@ -4,23 +4,16 @@
 import {EnderecoDefinition} from "./endereco.model";
 import {TelefoneDefinition} from "./telefone.model";
 export class ClienteDefinition {
-    
-    //Informações Básicas
-    public id: number;
-    public nome: string;
-    public cpf: string;
-    public email: string;
-    public tipoCliente: string;
-    
-    //Telefones
-    public telefones: TelefoneDefinition[];
+    static qtClientes: number = 0;
 
-    //Enderecos
-    public enderecos: EnderecoDefinition[];
-    
-   static qtClientes: number = 0;
-
-    constructor() {
+    constructor(
+            public id: number,
+            public nome: string,
+            public cpf: string,
+            public email: string,
+            public tipoCliente: string,
+            public telefones: TelefoneDefinition[],
+            public enderecos: EnderecoDefinition[]) {
         this.id = ++ClienteDefinition.qtClientes;
     }
 

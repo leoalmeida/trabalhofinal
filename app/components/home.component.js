@@ -63,8 +63,8 @@ System.register(['@angular/core', "@angular/common", "@angular/router", '@angula
                         .subscribe(function (menuItems) { return _this.list = menuItems; }, function (error) { return _this.errorMessage = error; });
                 };
                 HomeComponent.prototype.onSelect = function (item) {
-                    if (item.isExternal == true) {
-                        this.router.navigate([item.routeLink]);
+                    if (Boolean(item.isExternal)) {
+                        this.goExternal(item.routeLink);
                     }
                     else {
                         this.router.navigate([("./" + item.routeLink)], this.currSegment);

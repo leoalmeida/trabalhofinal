@@ -9,7 +9,10 @@ System.register([], function(exports_1, context_1) {
              * Created by LeonardoAlmeida on 06/05/16.
              */
             TelefoneDefinition = (function () {
-                function TelefoneDefinition() {
+                function TelefoneDefinition(id, numero, tipo) {
+                    this.id = id;
+                    this.numero = numero;
+                    this.tipo = tipo;
                     this.id = ++TelefoneDefinition.qtTelefones;
                 }
                 TelefoneDefinition.prototype.filter = function (list, filterOption) {

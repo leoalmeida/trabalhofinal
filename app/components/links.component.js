@@ -43,7 +43,7 @@ System.register(['@angular/core', "@angular/router", "../services/menu.service"]
                 };
                 LinksComponent = __decorate([
                     core_1.Component({
-                        template: "\n    <ul class=\"items\">\n      <li *ngFor=\"let crisis of crises\"\n        [class.selected]=\"isSelected(crisis)\"\n        (click)=\"onSelect(crisis)\">\n        <span class=\"badge\">{{crisis.id}}</span> {{crisis.name}}\n      </li>\n    </ul>\n  ",
+                        template: "\n    <ul class=\"items\">\n      <li *ngFor=\"let crisis of crises\"\n        [class.selected]=\"isSelected(crisis)\"\n        (click)=\"onSelect(link)\">\n        <span class=\"badge\">{{link.id}}</span> {{link.name}}\n      </li>\n    </ul>\n  ",
                     }), 
                     __metadata('design:paramtypes', [menu_service_1.MenuService, router_1.Router])
                 ], LinksComponent);

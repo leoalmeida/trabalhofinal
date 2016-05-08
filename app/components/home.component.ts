@@ -61,8 +61,8 @@ export class HomeComponent implements OnInit, OnActivate{
     }
 
     onSelect(item: ItemDefinition) {
-        if (item.isExternal == true){
-            this.router.navigate([item.routeLink]);
+        if (Boolean(item.isExternal)){
+            this.goExternal(item.routeLink);
         }else{
             this.router.navigate([`./${item.routeLink}`], this.currSegment);
         }

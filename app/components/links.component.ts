@@ -11,8 +11,8 @@ import {ItemDefinition} from "../models/item.model";
     <ul class="items">
       <li *ngFor="let crisis of crises"
         [class.selected]="isSelected(crisis)"
-        (click)="onSelect(crisis)">
-        <span class="badge">{{crisis.id}}</span> {{crisis.name}}
+        (click)="onSelect(link)">
+        <span class="badge">{{link.id}}</span> {{link.name}}
       </li>
     </ul>
   `,

@@ -3,15 +3,12 @@
  */
 export class TelefoneDefinition {
 
-
-    //Telefone
-    public id: number;
-    public numero: string;
-    public tipo: string;
-
     static qtTelefones: number = 0;
 
-    constructor() {
+    constructor(
+            public id: number,
+            public numero: string,
+            public tipo: string){
         this.id = ++TelefoneDefinition.qtTelefones;
     }
 
