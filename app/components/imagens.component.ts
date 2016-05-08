@@ -4,7 +4,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ItemDefinition} from "../models/item.model";
 import {CORE_DIRECTIVES} from "@angular/common";
-import {ImageService} from "../services/Image.service";
+import {ItemsService} from "../services/items.service";
 
 
 @Component({
@@ -12,7 +12,7 @@ import {ImageService} from "../services/Image.service";
     templateUrl: 'app/templates/imagens.html',
     styleUrls: ['app/stylesheets/imagens.css'],
     directives: [CORE_DIRECTIVES],
-    providers:  [ImageService]
+    providers:  [ItemsService]
 })
 export class ImagensComponent implements OnInit{
 
@@ -21,12 +21,14 @@ export class ImagensComponent implements OnInit{
 
     @Input() filtername: string;
 
-    constructor(private service: ImageService) {}
+    constructor(private service: ItemsService) {}
 
     getImages() {
 
-        this.service.getAllImageItems().then(
-            imageList => this.imageList  = imageList);
+        this.service.getAllItems("images")
+            .subscribe(
+                imageList => this.imageList = imageList,
+                error =>  this.errorMessage = <any>error);
     }
 
     ngOnInit() { this.getImages(); }

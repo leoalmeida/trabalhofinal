@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, Observable_1;
-    var MenuService;
+    var core_1, http_1, http_2, Observable_1;
+    var ClientesService;
     return {
         setters:[
             function (core_1_1) {
@@ -19,6 +19,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+                http_2 = http_1_1;
             },
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
@@ -26,39 +27,49 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
             function (_1) {},
             function (_2) {}],
         execute: function() {
-            MenuService = (function () {
-                function MenuService(http) {
+            ClientesService = (function () {
+                function ClientesService(http) {
                     this.http = http;
-                    this.munuItemsUrl = 'app/data/menuitems.json'; // URL to web api
+                    /*
+                     private clientesUrl = 'app/clientes.json'; // URL to JSON file
+                     */
+                    this.clientesUrl = 'app/clientes'; // URL to web api
                 }
-                MenuService.prototype.getAllMenuItems = function () {
-                    return this.http.get(this.munuItemsUrl)
+                ClientesService.prototype.getClientes = function () {
+                    return this.http.get(this.clientesUrl)
                         .map(this.extractData)
                         .catch(this.handleError);
                 };
-                MenuService.prototype.extractData = function (res) {
+                ClientesService.prototype.addCliente = function (cliente) {
+                    var body = JSON.stringify({ cliente: cliente });
+                    var headers = new http_2.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_2.RequestOptions({ headers: headers });
+                    return this.http.post(this.clientesUrl, body, options)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+                };
+                ClientesService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
                         throw new Error('Bad response status: ' + res.status);
                     }
                     var body = res.json();
                     return body.data || {};
                 };
-                MenuService.prototype.handleError = function (error) {
+                ClientesService.prototype.handleError = function (error) {
                     // In a real world app, we might send the error to remote logging infrastructure
                     var errMsg = error.message || 'Server error';
                     console.error(errMsg); // log to console instead
                     return Observable_1.Observable.throw(errMsg);
                 };
-                MenuService.nextMenuId = 100;
-                MenuService = __decorate([
+                ClientesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], MenuService);
-                return MenuService;
+                ], ClientesService);
+                return ClientesService;
             }());
-            exports_1("MenuService", MenuService);
+            exports_1("ClientesService", ClientesService);
         }
     }
 });
 
-//# sourceMappingURL=menu.service.js.map
+//# sourceMappingURL=cliente.service.js.map

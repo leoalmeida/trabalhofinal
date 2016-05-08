@@ -1,4 +1,4 @@
-System.register(['@angular/core', "@angular/common", "../services/Image.service"], function(exports_1, context_1) {
+System.register(['@angular/core', "@angular/common", "../services/items.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "@angular/common", "../services/Image.service"
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, Image_service_1;
+    var core_1, common_1, items_service_1;
     var ImagensComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['@angular/core', "@angular/common", "../services/Image.service"
             function (common_1_1) {
                 common_1 = common_1_1;
             },
-            function (Image_service_1_1) {
-                Image_service_1 = Image_service_1_1;
+            function (items_service_1_1) {
+                items_service_1 = items_service_1_1;
             }],
         execute: function() {
             ImagensComponent = (function () {
@@ -30,7 +30,8 @@ System.register(['@angular/core', "@angular/common", "../services/Image.service"
                 }
                 ImagensComponent.prototype.getImages = function () {
                     var _this = this;
-                    this.service.getAllImageItems().then(function (imageList) { return _this.imageList = imageList; });
+                    this.service.getAllItems("images")
+                        .subscribe(function (imageList) { return _this.imageList = imageList; }, function (error) { return _this.errorMessage = error; });
                 };
                 ImagensComponent.prototype.ngOnInit = function () { this.getImages(); };
                 __decorate([
@@ -43,9 +44,9 @@ System.register(['@angular/core', "@angular/common", "../services/Image.service"
                         templateUrl: 'app/templates/imagens.html',
                         styleUrls: ['app/stylesheets/imagens.css'],
                         directives: [common_1.CORE_DIRECTIVES],
-                        providers: [Image_service_1.ImageService]
+                        providers: [items_service_1.ItemsService]
                     }), 
-                    __metadata('design:paramtypes', [Image_service_1.ImageService])
+                    __metadata('design:paramtypes', [items_service_1.ItemsService])
                 ], ImagensComponent);
                 return ImagensComponent;
             }());

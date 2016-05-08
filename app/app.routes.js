@@ -1,7 +1,7 @@
-System.register(['./components/home.component', "./components/imagens.component", "./components/forms.component", "./components/links.component", "./components/info.component", "./components/table.component"], function(exports_1, context_1) {
+System.register(['./components/home.component', "./components/imagens.component", "./components/forms.component", "./components/links.component", "./components/info.component", "./components/clientes.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var home_component_1, imagens_component_1, forms_component_1, links_component_1, info_component_1, table_component_1;
+    var home_component_1, imagens_component_1, forms_component_1, links_component_1, info_component_1, clientes_component_1;
     var APP_ROUTES, MENU_ROUTES;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['./components/home.component', "./components/imagens.component"
             function (info_component_1_1) {
                 info_component_1 = info_component_1_1;
             },
-            function (table_component_1_1) {
-                table_component_1 = table_component_1_1;
+            function (clientes_component_1_1) {
+                clientes_component_1 = clientes_component_1_1;
             }],
         execute: function() {
             exports_1("APP_ROUTES", APP_ROUTES = [
@@ -30,7 +30,7 @@ System.register(['./components/home.component', "./components/imagens.component"
             exports_1("MENU_ROUTES", MENU_ROUTES = [
                 { path: '/forms', component: forms_component_1.FormsComponent },
                 { path: '/imagens', component: imagens_component_1.ImagensComponent },
-                { path: '/table', component: table_component_1.TableComponent },
+                { path: '/clientes', component: clientes_component_1.ClientesComponent },
                 { path: '/info', component: info_component_1.InfoComponent },
                 { path: '/:id', component: links_component_1.LinksComponent }
             ]);

@@ -1,5 +1,6 @@
-.navbar-header{
+nav{
     display: block;
+    height: 35px;
 }
 
 .navbar-text {

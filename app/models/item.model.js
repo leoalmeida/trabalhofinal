@@ -9,12 +9,12 @@ System.register([], function(exports_1, context_1) {
              * Created by LeonardoAlmeida on 02/05/16.
              */
             ItemDefinition = (function () {
-                function ItemDefinition(nome, linkImagem, route, externalLink) {
-                    this.nome = nome;
-                    this.id = ++ItemDefinition.qtItens;
-                    this.linkImagem = linkImagem;
-                    this.route = route;
-                    this.externalLink = externalLink;
+                function ItemDefinition(id, name, imgLink, routeLink, isExternal) {
+                    this.id = id;
+                    this.name = name;
+                    this.imgLink = imgLink;
+                    this.routeLink = routeLink;
+                    this.isExternal = isExternal;
                 }
                 ItemDefinition.prototype.filter = function (list, filterOption) {
                     return list;

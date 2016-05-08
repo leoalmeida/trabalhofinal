@@ -25,7 +25,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     if (filteredItems.trim().length <= 0) {
                         return items;
                     }
-                    return items.filter(function (returned) { return (returned.nome.indexOf(filteredItems) > -1); });
+                    return items.filter(function (returned) { return (returned.name.indexOf(filteredItems) > -1); });
                 };
                 MenuFilterPipe = __decorate([
                     core_1.Pipe({ name: 'menuFilter' }), 

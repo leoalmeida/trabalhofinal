@@ -8,6 +8,6 @@ export class MenuFilterPipe implements PipeTransform {
         if (filteredItems.trim().length<=0) {
             return items;
         }
-        return items.filter(returned => (returned.nome.indexOf(filteredItems) > -1))
+        return items.filter(returned => (returned.name.indexOf(filteredItems) > -1))
     }
 }

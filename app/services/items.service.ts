@@ -1,6 +1,3 @@
-/**
- * Created by LeonardoAlmeida on 30/04/16.
- */
 import { Injectable } from '@angular/core';
 import { ItemDefinition } from "../models/item.model";
 import { Http, URLSearchParams, Response } from '@angular/http';
@@ -8,15 +5,18 @@ import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+
 @Injectable()
-export class MenuService {
-    static nextMenuId = 100;
+export class ItemsService {
+    static nextItemId = 100;
+
     constructor(private http: Http) {}
 
-    private munuItemsUrl = 'app/data/menuitems.json';  // URL to web api
+    getAllItems(definition: string): Observable<ItemDefinition[]> {
 
-    getAllMenuItems(): Observable<ItemDefinition[]> {
-        return this.http.get(this.munuItemsUrl)
+        let itemsUrl = 'app/data/'+ definition +'.json';
+
+        return this.http.get(itemsUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
@@ -35,4 +35,5 @@ export class MenuService {
         console.error(errMsg); // log to console instead
         return Observable.throw(errMsg);
     }
+
 }

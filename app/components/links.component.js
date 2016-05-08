@@ -31,10 +31,9 @@ System.register(['@angular/core', "@angular/router", "../services/menu.service"]
                 }
                 LinksComponent.prototype.isSelected = function (item) { return item.id === this.selectedId; };
                 LinksComponent.prototype.routerOnActivate = function (curr, prev, currTree) {
-                    var _this = this;
                     this.currSegment = curr;
                     this.selectedId = +currTree.parent(curr).getParam('id');
-                    this.service.getAllMenuItems().then(function (list) { return _this.itemList = list; });
+                    //this.service.getAllMenuItems().then(list => this.itemList = list);
                 };
                 LinksComponent.prototype.onSelect = function (item) {
                     // Absolute link

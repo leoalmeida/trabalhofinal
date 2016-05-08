@@ -31,7 +31,7 @@ export class LinksComponent implements OnActivate {
     routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) {
         this.currSegment = curr;
         this.selectedId = +currTree.parent(curr).getParam('id');
-        this.service.getAllMenuItems().then(list => this.itemList = list);
+        //this.service.getAllMenuItems().then(list => this.itemList = list);
     }
 
     onSelect(item: ItemDefinition) {

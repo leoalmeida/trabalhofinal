@@ -10,6 +10,7 @@ export class ClienteDefinition {
     public nome: string;
     public cpf: string;
     public email: string;
+    public tipoCliente: string;
     
     //Telefones
     public telefones: TelefoneDefinition[];

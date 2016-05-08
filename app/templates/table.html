@@ -1,4 +1,19 @@
-<!--suppress ALL, HtmlUnknownTarget, HtmlUnknownTarget -->
+<div class="panel panel-success round">
+    <div class="panel-heading">
+        <h3>Clientes:</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li *ngFor="let cliente of Clientes">
+                {{ cliente.nome }}
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+    </div>
+</div>
+<!--
  <div class="panel panel-success round">
     <div class="panel-heading">
         <strong>Exchange Info: <a href="http://ptt.br">PTT-SP</a></strong>
@@ -8,7 +23,6 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
-                        <!--suppress XmlInvalidId -->
                         <label for="example1">Website:</label>
                         <a href="http://ptt.br" target="_blank">http://ptt.br</a>
                     </div>
@@ -65,9 +79,7 @@
             </div>
         </form>
     </div>
- </div>
-
-<table id="members" class="table table-condensed table-no-more">
+    <table id="members" class="table table-condensed table-striped table-bordered table-no-more">
     <thead class="cf">
         <tr>
             <th><a href="#" onclick="ts_resortTable(this);return false;">ASN<span class="fa fa-caret-right">&nbsp;&nbsp;&nbsp;</span></a></th>
@@ -3719,7 +3731,7 @@
     </tr>
 
     <tr>
-        <td><!--suppress HtmlUnknownTarget -->
+        <td>
             <a href="/AS393742" title="Biyort USA">AS393742</a></td>
         <td>Biyort USA</td>
         <td><small>187.16.220.15</small></td>
@@ -3727,3 +3739,5 @@
     </tr>
     </tbody>
 </table>
+ </div>
+-->

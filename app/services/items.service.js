@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Observable_1;
-    var MenuService;
+    var ItemsService;
     return {
         setters:[
             function (core_1_1) {
@@ -26,39 +26,39 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
             function (_1) {},
             function (_2) {}],
         execute: function() {
-            MenuService = (function () {
-                function MenuService(http) {
+            ItemsService = (function () {
+                function ItemsService(http) {
                     this.http = http;
-                    this.munuItemsUrl = 'app/data/menuitems.json'; // URL to web api
                 }
-                MenuService.prototype.getAllMenuItems = function () {
-                    return this.http.get(this.munuItemsUrl)
+                ItemsService.prototype.getAllItems = function (definition) {
+                    var itemsUrl = 'app/data/' + definition + '.json';
+                    return this.http.get(itemsUrl)
                         .map(this.extractData)
                         .catch(this.handleError);
                 };
-                MenuService.prototype.extractData = function (res) {
+                ItemsService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
                         throw new Error('Bad response status: ' + res.status);
                     }
                     var body = res.json();
                     return body.data || {};
                 };
-                MenuService.prototype.handleError = function (error) {
+                ItemsService.prototype.handleError = function (error) {
                     // In a real world app, we might send the error to remote logging infrastructure
                     var errMsg = error.message || 'Server error';
                     console.error(errMsg); // log to console instead
                     return Observable_1.Observable.throw(errMsg);
                 };
-                MenuService.nextMenuId = 100;
-                MenuService = __decorate([
+                ItemsService.nextItemId = 100;
+                ItemsService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], MenuService);
-                return MenuService;
+                ], ItemsService);
+                return ItemsService;
             }());
-            exports_1("MenuService", MenuService);
+            exports_1("ItemsService", ItemsService);
         }
     }
 });
 
-//# sourceMappingURL=menu.service.js.map
+//# sourceMappingURL=items.service.js.map

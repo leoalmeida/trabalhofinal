@@ -1,4 +1,4 @@
-System.register(['@angular/core', "@angular/common", "@angular/router", "../services/menu.service"], function(exports_1, context_1) {
+System.register(['@angular/core', "@angular/common", "@angular/router", '@angular/http', 'rxjs/Subject', 'rxjs/add/operator/map', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/switchMap', "../services/items.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "@angular/common", "@angular/router", "../serv
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_1, menu_service_1;
+    var core_1, common_1, router_1, http_1, Subject_1, items_service_1;
     var HomeComponent;
     return {
         setters:[
@@ -23,58 +23,66 @@ System.register(['@angular/core', "@angular/common", "@angular/router", "../serv
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (menu_service_1_1) {
-                menu_service_1 = menu_service_1_1;
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (Subject_1_1) {
+                Subject_1 = Subject_1_1;
+            },
+            function (_1) {},
+            function (_2) {},
+            function (_3) {},
+            function (_4) {},
+            function (items_service_1_1) {
+                items_service_1 = items_service_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
                 function HomeComponent(service, router) {
                     this.service = service;
                     this.router = router;
-                    this.filtername = "";
+                    this.showSearch = false;
+                    this.searchText = new common_1.Control('');
+                    this.searchTermStream = new Subject_1.Subject();
+                    //   this.list = this.searchTermStream
+                    //       .debounceTime(300)
+                    //       .distinctUntilChanged()
+                    //       .switchMap((searchText: string) => this.service.search(searchText));
                 }
-                HomeComponent.prototype.toggleMenu = function () {
-                    this.showMenu = !this.showMenu;
-                };
-                HomeComponent.prototype.goExternal = function (link) {
-                    window.location.href = link;
-                };
+                HomeComponent.prototype.search = function (searchText) { this.searchTermStream.next(searchText); };
+                HomeComponent.prototype.toggle = function () { this.showSearch = !this.showSearch; };
+                HomeComponent.prototype.goExternal = function (link) { window.location.href = link; };
                 HomeComponent.prototype.routerOnActivate = function (curr, prev, currTree) {
-                    var _this = this;
                     this.currSegment = curr;
                     this.selectedId = +currTree.parent(curr).getParam('id');
-                    this.service.getAllMenuItems().then(function (list) { return _this.list = list; });
+                    //this.service.getAllItems().then(list => this.list = list);
+                };
+                HomeComponent.prototype.getAllMenuItems = function () {
+                    var _this = this;
+                    this.service.getAllItems("menu")
+                        .subscribe(function (menuItems) { return _this.list = menuItems; }, function (error) { return _this.errorMessage = error; });
                 };
                 HomeComponent.prototype.onSelect = function (item) {
-                    if (item.externalLink) {
-                        this.router.navigate([item.externalLink]);
+                    if (item.isExternal == true) {
+                        this.router.navigate([item.routeLink]);
                     }
                     else {
-                        this.router.navigate([("./" + item.route)], this.currSegment);
+                        this.router.navigate([("./" + item.routeLink)], this.currSegment);
                     }
                 };
                 HomeComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this.service.getAllMenuItems().then(function (list) { return _this.list = list; });
-                    this.showMenu = true;
+                    this.getAllMenuItems();
+                    //this.service.search("");
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], HomeComponent.prototype, "filtername", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Boolean)
-                ], HomeComponent.prototype, "showMenu", void 0);
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'painel',
                         templateUrl: 'app/templates/home.html',
                         styleUrls: ['app/stylesheets/home.css'],
-                        directives: [common_1.CORE_DIRECTIVES],
-                        providers: [menu_service_1.MenuService]
+                        directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+                        providers: [http_1.JSONP_PROVIDERS, items_service_1.ItemsService]
                     }), 
-                    __metadata('design:paramtypes', [menu_service_1.MenuService, router_1.Router])
+                    __metadata('design:paramtypes', [items_service_1.ItemsService, router_1.Router])
                 ], HomeComponent);
                 return HomeComponent;
             }());
@@ -82,5 +90,4 @@ System.register(['@angular/core', "@angular/common", "@angular/router", "../serv
         }
     }
 });
-
 //# sourceMappingURL=home.component.js.map

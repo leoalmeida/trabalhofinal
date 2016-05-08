@@ -14,14 +14,16 @@
         'rxjs': 'n:rxjs',
         '@angular': 'n:@angular',
         'lodash': 'n:lodash',
-        'symbol-observable': 'n:symbol-observable'
+        'symbol-observable': 'n:symbol-observable',
+        'angular2-in-memory-web-api': 'n:angular2-in-memory-web-api'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app': {defaultExtension: 'js', format: 'register'},
         'rxjs': {defaultExtension: 'js'},
-        'symbol-observable':{main: 'index.js', defaultExtension: 'js'}
+        'symbol-observable':{main: 'index.js', defaultExtension: 'js'},
+        'angular2-in-memory-web-api': { defaultExtension: 'js' }
     };
 
     var packageNames = [

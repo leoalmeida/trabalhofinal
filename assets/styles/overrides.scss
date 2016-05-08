@@ -1,3 +1,8 @@
+.navbar-text,.navbar-form {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .painel {
   margin: 0;
   padding: 0;
@@ -26,17 +31,10 @@
   z-index: 3000;
 }
 
-.fixed-btn-back{
-  position: fixed;
-  right: 100px;
-  top: 20px;
-  z-index: 3000;
-}
-
 
 .botao {
   display:inline-block;
-  padding: .6em .6em;
+  padding: 1.25em 1.25em;
   text-decoration: none;
   font-size: 1em;
   border: 0;
@@ -90,4 +88,7 @@
   -webkit-border-radius: .2em;
   -moz-border-radius: .2em;
   border-radius: .2em;
+}
+#main {
+  margin-top: 10px;
 }

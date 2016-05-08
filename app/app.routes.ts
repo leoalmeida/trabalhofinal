@@ -6,6 +6,7 @@ import {FormsComponent} from "./components/forms.component";
 import {LinksComponent} from "./components/links.component";
 import {InfoComponent} from "./components/info.component";
 import {TableComponent} from "./components/table.component";
+import {ClientesComponent} from "./components/clientes.component";
 
 export var APP_ROUTES: Route[] = [
     {path: '/', component: HomeComponent}
@@ -14,7 +15,7 @@ export var APP_ROUTES: Route[] = [
 export var MENU_ROUTES: Route[] = [
     { path: '/forms', component: FormsComponent},
     { path: '/imagens', component: ImagensComponent},
-    { path: '/table', component: TableComponent},
+    { path: '/clientes', component: ClientesComponent},
     { path: '/info', component: InfoComponent},
     { path: '/:id', component: LinksComponent}
 ];

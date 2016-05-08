@@ -1,4 +1,13 @@
 /* Main body */
+
+.form-search{
+    position: fixed;
+    right: 100px;
+    top: 20px;
+    z-index: 3000;
+
+}
+
 .main{
     position: relative; /* needed for footer positioning*/
     height: auto !important; /* real browsers */

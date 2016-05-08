@@ -1,0 +1,15 @@
+{
+  "data": [
+    {"id": 1, "name": "Forms", "imgLink": "/assets/imagens/Form-96.png", "routeLink": "/forms", "isExternal": "false"},
+    {"id": 2, "name": "Imagens", "imgLink": "/assets/imagens/Beach-96.png", "routeLink": "/imagens", "isExternal": "false"},
+    {"id": 3, "name": "Clientes", "imgLink": "/assets/imagens/Grid-96.png", "routeLink": "/clientes", "isExternal": "false"},
+    {"id": 4, "name": "Info", "imgLink": "/assets/imagens/About-96.png", "routeLink": "/info", "isExternal": "false"},
+    {"id": 5, "name": "Github", "imgLink": "/assets/imagens/Github2-96.png", "routeLink": "https://github.com/leoalmeida/trabalhofinal", "isExternal": "true"},
+    {"id": 6, "name": "CSS", "imgLink": "/assets/imagens/CSS3-96.png", "routeLink": "https://cssanimation.rocks/pt/", "isExternal": "true"},
+    {"id": 7, "name": "HBO Go", "imgLink": "/assets/imagens/HBOGo-96.png", "routeLink": "http://www.hbogo.com.br/", "isExternal": "true"},
+    {"id": 8, "name": "WhatsApp", "imgLink": "/assets/imagens/WhatsApp-96.png", "routeLink": "https://web.whatsapp.com/", "isExternal": "true"},
+    {"id": 9, "name": "Facebook", "imgLink": "/assets/imagens/Facebook-96.png", "routeLink": "http://www.facebook.com", "isExternal": "true"},
+    {"id": 10, "name": "Chrome", "imgLink": "/assets/imagens/Chrome-96.png", "routeLink": "https://www.google.com/chrome/", "isExternal": "true"}
+  ]
+}
+
