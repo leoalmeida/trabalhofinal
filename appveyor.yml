@@ -9,7 +9,7 @@ version: "{build}"
 environment:
   nodejs_version: "5.6.0"
 
-build: off
+build: on
 
 clone_depth: 10
 
