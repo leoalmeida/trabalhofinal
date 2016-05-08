@@ -16,7 +16,7 @@ export class TableComponent implements OnInit {
     constructor (private clienteService: ClientesService) {}
 
     errorMessage: string;
-    clientes:ClienteDefinition[];
+    clientes: ClienteDefinition[];
 
     ngOnInit() { this.getClientes(); }
 

@@ -4,6 +4,4 @@ import {HTTP_PROVIDERS} from '@angular/http';
 import {AppComponent} from './app.component';
 import {LoggerService} from './services/logger.service';
 
-bootstrap(AppComponent, [
-    LoggerService, ROUTER_PROVIDERS, HTTP_PROVIDERS
-]);
+bootstrap(AppComponent, [LoggerService, ROUTER_PROVIDERS, HTTP_PROVIDERS]);

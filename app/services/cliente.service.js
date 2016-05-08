@@ -33,7 +33,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                     /*
                      private clientesUrl = 'app/clientes.json'; // URL to JSON file
                      */
-                    this.clientesUrl = 'app/clientes'; // URL to web api
+                    this.clientesUrl = 'data/clientes'; // URL to web api
                 }
                 ClientesService.prototype.getClientes = function () {
                     return this.http.get(this.clientesUrl)
@@ -71,5 +71,4 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
         }
     }
 });
-
 //# sourceMappingURL=cliente.service.js.map

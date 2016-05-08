@@ -46,6 +46,10 @@
 
 
     var config = {
+        transpiler: 'typescript',
+        typescriptOptions: {
+            emitDecoratorMetadata: true
+        },
         map: map,
         packages: packages,
         paths: paths

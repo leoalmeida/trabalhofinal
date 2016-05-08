@@ -1,6 +1,3 @@
-/**
- * Created by LeonardoAlmeida on 07/05/16.
- */
 System.register(['@angular/core', './table.component', '../services/cliente.service', '@angular/http', 'angular2-in-memory-web-api/core', '../data/clientes-data'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -43,9 +40,10 @@ System.register(['@angular/core', './table.component', '../services/cliente.serv
                 ClientesComponent = __decorate([
                     core_1.Component({
                         selector: 'clientes',
-                        template: "\n  <h1>Gest\u00E3o de Clientes</h1>\n  <lista-clientes></lista-clientes>\n  ",
+                        template: "\n            <h1>Gest\u00E3o de Clientes</h1>\n            <lista-clientes></lista-clientes>\n    ",
                         directives: [table_component_1.TableComponent],
                         providers: [
+                            http_1.HTTP_PROVIDERS,
                             cliente_service_1.ClientesService,
                             // in-memory web api providers
                             core_2.provide(http_1.XHRBackend, { useClass: core_3.InMemoryBackendService }),

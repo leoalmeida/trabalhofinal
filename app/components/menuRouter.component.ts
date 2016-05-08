@@ -13,6 +13,8 @@ import {InfoComponent} from "./info.component";
 import {LinksComponent} from "./links.component";
 import {HomeComponent} from "./home.component";
 import {AnimationDirective} from "../directives/animation.directive";
+import {ClientesComponent} from "./clientes.component";
+import {ClientesData} from "../data/clientes-data";
 
 @Component({
     template:  `
@@ -28,9 +30,10 @@ import {AnimationDirective} from "../directives/animation.directive";
     { path: '', component: HomeComponent},
     { path: '/forms', component: FormsComponent},
     { path: '/imagens', component: ImagensComponent},
-    { path: '/table', component: TableComponent},
+    { path: '/clientes', component: ClientesComponent},
     { path: '/info', component: InfoComponent},
-    { path: '/:id', component: LinksComponent}
+    { path: '/:id', component: LinksComponent},
+    { path: '/data/clientes', component: ClientesData}
 ])
 export class MenuRouterComponent{
 

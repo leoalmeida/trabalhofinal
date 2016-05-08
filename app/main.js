@@ -20,9 +20,7 @@ System.register(['@angular/platform-browser-dynamic', '@angular/router', '@angul
                 logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
-            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
-                logger_service_1.LoggerService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS
-            ]);
+            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [logger_service_1.LoggerService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS]);
         }
     }
 });

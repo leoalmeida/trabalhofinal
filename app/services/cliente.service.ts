@@ -19,7 +19,7 @@ export class ClientesService {
      private clientesUrl = 'app/clientes.json'; // URL to JSON file
      */
 
-    private clientesUrl = 'app/clientes';  // URL to web api
+    private clientesUrl = 'data/clientes';  // URL to web api
 
     getClientes (): Observable<ClienteDefinition[]> {
         return this.http.get(this.clientesUrl)
