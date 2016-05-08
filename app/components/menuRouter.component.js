@@ -74,5 +74,4 @@ System.register(['@angular/core', "@angular/router", "./forms.component", "./ima
         }
     }
 });
-
 //# sourceMappingURL=menuRouter.component.js.map

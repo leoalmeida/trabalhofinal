@@ -53,5 +53,4 @@ System.register(['@angular/core', "@angular/router", "../services/menu.service"]
         }
     }
 });
-
 //# sourceMappingURL=links.component.js.map
