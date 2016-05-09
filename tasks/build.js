@@ -23,7 +23,7 @@ gulp.task('build-sjs', function (done) {
         builder.loadConfig('./systemjs.conf.js')
         .then(function() {
             return builder
-                .bundle(config.app + 'main',
+                .bundle(config.app + 'main.js',
                         config.build.path + config.app + 'main.js', 
                 config.systemJs.builder);
         })

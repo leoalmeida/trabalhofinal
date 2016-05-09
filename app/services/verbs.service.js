@@ -47,5 +47,4 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
         }
     }
 });
-
 //# sourceMappingURL=verbs.service.js.map
