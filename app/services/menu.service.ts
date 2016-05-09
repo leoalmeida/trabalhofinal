@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 import { ItemDefinition } from "../models/item.model";
 import { Http, URLSearchParams, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';  // debug
 import 'rxjs/add/operator/catch';
 
 @Injectable()

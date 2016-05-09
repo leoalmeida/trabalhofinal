@@ -7,11 +7,15 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES, Control} from "@angular/common";
 import {Router, RouteSegment, RouteTree, OnActivate} from "@angular/router";
 import { JSONP_PROVIDERS }  from '@angular/http';
 import { Observable }       from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 import { Subject }          from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+
+import 'rxjs/add/operator/do';  // debug
+import 'rxjs/add/operator/catch';
 
 import {ItemsService} from "../services/items.service";
 
