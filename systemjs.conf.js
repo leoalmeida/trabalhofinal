@@ -20,7 +20,7 @@
 
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
-        'app': {defaultExtension: 'js', format: 'register'},
+        'app': {main: 'main.js', defaultExtension: 'js', format: 'register'},
         'rxjs': {defaultExtension: 'js'},
         'symbol-observable':{main: 'index.js', defaultExtension: 'js'},
         'angular2-in-memory-web-api': { defaultExtension: 'js' }
@@ -46,6 +46,7 @@
 
 
     var config = {
+        defaultJSExtensions: true,
         map: map,
         packages: packages,
         paths: paths

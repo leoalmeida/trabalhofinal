@@ -17,6 +17,14 @@ module.exports = function () {
     var tsFiles = [
         app + '**/!(*.spec)+(.ts)'
     ];
+
+    var tsOutputPath = this.source + '/js';
+
+    var allJavaScript = [this.assets + '/js/**/*.js'];
+    var allTypeScript = this.app + '/**/*.ts';
+
+    var libraryTypeScriptDefinitions = './typings/**/*.ts';
+
     var tsTestFiles = {
         unit: [app + '**/*.spec.ts'],
         e2e: [e2e + '**/*.ts'],
@@ -91,7 +99,11 @@ module.exports = function () {
         tsFiles: tsFiles,
         tsTestFiles: tsTestFiles,
         browserSync: browserSync,
-        systemJs: systemJs
+        systemJs: systemJs,
+        tsOutputPath: tsOutputPath,
+        allJavaScript: allJavaScript,
+        allTypeScript: allTypeScript,
+        libraryTypeScriptDefinitions: libraryTypeScriptDefinitions
     };
 
     return config;

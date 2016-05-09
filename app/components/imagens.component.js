@@ -54,4 +54,5 @@ System.register(['@angular/core', "@angular/common", "../services/items.service"
         }
     }
 });
+
 //# sourceMappingURL=imagens.component.js.map

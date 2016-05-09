@@ -55,4 +55,5 @@ System.register(['@angular/core', "../services/cliente.service"], function(expor
         }
     }
 });
+
 //# sourceMappingURL=table.component.js.map
