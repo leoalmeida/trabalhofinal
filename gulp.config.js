@@ -1,4 +1,5 @@
-var historyApiFallback = require('connect-history-api-fallback')
+var historyApiFallback = require('connect-history-api-fallback');
+var connectLogger = require("connect-logger");
 
 module.exports = function () {
     var root = '';
@@ -101,7 +102,6 @@ module.exports = function () {
         tmpE2E: tmpE2E,
         testHelper: testHelper,
         e2e: e2e,
-        e2eConfig: e2eConfig,
         assets: assets,
         index: index,
         build: build,
