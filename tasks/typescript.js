@@ -6,7 +6,7 @@ var path = require('path');
 
 /* Initialize TS Project */
 var typingFiles = [
-    'typings/browser.d.ts'
+    'typings/index.d.ts'
 ];
 
 var tsFiles = [].concat(config.tsFiles);
@@ -33,7 +33,8 @@ function compileTs(files, watchMode) {
     var tsProject = ts.createProject(config.root + 'tsconfig.json');
     var allFiles = [].concat(files, typingFiles);
     var res = gulp.src(allFiles, {
-            base: '.'
+            base: '.',
+            outDir: config.tmp
         })
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
@@ -43,11 +44,7 @@ function compileTs(files, watchMode) {
     return res.js
         .pipe(sourcemaps.write('.', {
               // Return relative source map root directories per file.
-              includeContent: false,
-              sourceRoot: function (file) {
-                var sourceFile = path.join(file.cwd, file.sourceMap.file);
-                return path.relative(path.dirname(sourceFile), file.cwd);
-              }
+              includeContent: false
             }))
-        .pipe(gulp.dest(config.root));
+        .pipe(gulp.dest(config.tmp));
 }

@@ -26,5 +26,4 @@ var NavbarComponent = (function () {
     return NavbarComponent;
 }());
 exports.NavbarComponent = NavbarComponent;
-
 //# sourceMappingURL=navbar.component.js.map

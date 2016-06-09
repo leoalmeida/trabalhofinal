@@ -41,5 +41,4 @@ var ImagensComponent = (function () {
     return ImagensComponent;
 }());
 exports.ImagensComponent = ImagensComponent;
-
 //# sourceMappingURL=imagens.component.js.map

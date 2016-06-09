@@ -33,5 +33,4 @@ var VerbsService = (function () {
     return VerbsService;
 }());
 exports.VerbsService = VerbsService;
-
 //# sourceMappingURL=verbs.service.js.map

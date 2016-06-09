@@ -17,5 +17,4 @@ var ItemDefinition = (function () {
     return ItemDefinition;
 }());
 exports.ItemDefinition = ItemDefinition;
-
 //# sourceMappingURL=item.model.js.map

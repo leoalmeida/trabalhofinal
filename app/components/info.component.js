@@ -25,5 +25,4 @@ var InfoComponent = (function () {
     return InfoComponent;
 }());
 exports.InfoComponent = InfoComponent;
-
 //# sourceMappingURL=info.component.js.map

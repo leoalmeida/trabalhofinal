@@ -49,5 +49,4 @@ var MenuService = (function () {
     return MenuService;
 }());
 exports.MenuService = MenuService;
-
 //# sourceMappingURL=menu.service.js.map

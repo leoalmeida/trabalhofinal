@@ -25,5 +25,4 @@ var MenuFilterPipe = (function () {
     return MenuFilterPipe;
 }());
 exports.MenuFilterPipe = MenuFilterPipe;
-
 //# sourceMappingURL=menu-filter.pipe.js.map

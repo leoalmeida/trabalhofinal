@@ -25,5 +25,4 @@ var LoggerService = (function () {
     return LoggerService;
 }());
 exports.LoggerService = LoggerService;
-
 //# sourceMappingURL=logger.service.js.map

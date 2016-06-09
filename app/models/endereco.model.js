@@ -24,5 +24,4 @@ var EnderecoDefinition = (function () {
     return EnderecoDefinition;
 }());
 exports.EnderecoDefinition = EnderecoDefinition;
-
 //# sourceMappingURL=endereco.model.js.map

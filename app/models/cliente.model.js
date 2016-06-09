@@ -17,5 +17,4 @@ var ClienteDefinition = (function () {
     return ClienteDefinition;
 }());
 exports.ClienteDefinition = ClienteDefinition;
-
 //# sourceMappingURL=cliente.model.js.map

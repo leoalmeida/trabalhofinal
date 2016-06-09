@@ -16,5 +16,4 @@ var TelefoneDefinition = (function () {
     return TelefoneDefinition;
 }());
 exports.TelefoneDefinition = TelefoneDefinition;
-
 //# sourceMappingURL=telefone.model.js.map

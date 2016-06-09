@@ -40,5 +40,4 @@ var ClientesComponent = (function () {
     return ClientesComponent;
 }());
 exports.ClientesComponent = ClientesComponent;
-
 //# sourceMappingURL=clientes.component.js.map

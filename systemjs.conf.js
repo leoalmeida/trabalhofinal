@@ -3,6 +3,9 @@
 
 (function(global) {
 
+    // ENV
+    global.ENV = global.ENV || 'development';
+
     // wildcard paths
     var paths = {
         'n:*': 'node_modules/*'
@@ -26,24 +29,31 @@
         'angular2-in-memory-web-api': { defaultExtension: 'js' }
     };
 
+    // Add package entries for angular packages
+    var ngPackageNames = [
+        'common',
+        'compiler',
+        'core',
+        'http',
+        'platform-browser',
+        'platform-browser-dynamic',
+        'router'
+    ];
+
     var packageNames = [
-        '@angular/common',
-        '@angular/compiler',
-        '@angular/core',
-        '@angular/http',
-        '@angular/platform-browser',
-        '@angular/platform-browser-dynamic',
-        '@angular/router',
-        '@angular/router-deprecated',
         'lodash'
     ];
 
-    // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+    ngPackageNames.forEach(function(pkgName) {
+        var main = pkgName + '.umd.js';
+
+        packages['@angular/'+pkgName] = { main: main, defaultExtension: 'js' };
+    });
+
     packageNames.forEach(function(pkgName) {
         packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
     });
-
-
+    
 
     var config = {
         defaultJSExtensions: true,

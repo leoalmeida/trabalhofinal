@@ -50,5 +50,4 @@ var MenuRouterComponent = (function () {
     return MenuRouterComponent;
 }());
 exports.MenuRouterComponent = MenuRouterComponent;
-
 //# sourceMappingURL=menuRouter.component.js.map

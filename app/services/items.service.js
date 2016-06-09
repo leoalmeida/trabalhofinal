@@ -44,5 +44,4 @@ var ItemsService = (function () {
     return ItemsService;
 }());
 exports.ItemsService = ItemsService;
-
 //# sourceMappingURL=items.service.js.map

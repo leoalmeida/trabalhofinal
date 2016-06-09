@@ -40,5 +40,4 @@ var LinksComponent = (function () {
     return LinksComponent;
 }());
 exports.LinksComponent = LinksComponent;
-
 //# sourceMappingURL=links.component.js.map

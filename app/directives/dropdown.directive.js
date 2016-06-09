@@ -45,5 +45,4 @@ var DropdownComponent = (function () {
     return DropdownComponent;
 }());
 exports.DropdownComponent = DropdownComponent;
-
 //# sourceMappingURL=dropdown.directive.js.map

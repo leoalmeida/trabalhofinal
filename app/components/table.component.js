@@ -44,5 +44,4 @@ var TableComponent = (function () {
     return TableComponent;
 }());
 exports.TableComponent = TableComponent;
-
 //# sourceMappingURL=table.component.js.map

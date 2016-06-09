@@ -124,5 +124,4 @@ var AnimationDirective = (function () {
     return AnimationDirective;
 }());
 exports.AnimationDirective = AnimationDirective;
-
 //# sourceMappingURL=animation.directive.js.map
