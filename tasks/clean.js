@@ -20,10 +20,6 @@ gulp.task('clean-ts', function () {
     return del([config.tmp]);
 });
 
-
 gulp.task('clean-ts-app', function () {
-    return del([
-        config.tmp + '**/*.js',
-        config.tmp + '**/*.js.map'
-    ]);
+    return del([config.tmpApp]);
 });

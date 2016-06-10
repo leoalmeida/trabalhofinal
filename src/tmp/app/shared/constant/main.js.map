@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/shared/constant/main.ts"],"names":[],"mappings":";AAAa,YAAI,GAAG;IACZ,GAAG,EAAE;QACD,KAAK,EAAE,gBAAgB;KAC1B;CACR,CAAC","file":"app/shared/constant/main.js","sourcesContent":["export const MAIN = {\n        APP: {\n            BRAND: 'Trabalho Final'\n        }\n};\n"],"sourceRoot":"/source/"}

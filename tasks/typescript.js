@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var config = require('../gulp.config')();
 var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
-var path = require('path');
+var argv = require('yargs').argv;
 
 /* Initialize TS Project */
 var typingFiles = [
@@ -29,22 +29,26 @@ gulp.task('tsc-app', ['clean-ts-app'], function () {
 });
 
 function compileTs(files, watchMode) {
+    var inline = !argv.excludeSource;
     watchMode = watchMode || false;
-    var tsProject = ts.createProject(config.root + 'tsconfig.json');
+
+    var tsProject = ts.createProject('tsconfig.json');
     var allFiles = [].concat(files, typingFiles);
     var res = gulp.src(allFiles, {
-            base: '.',
-            outDir: config.tmp
-        })
+        base: config.src,
+        outDir: config.tmp
+    })
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
         .on('error', function () {
+            if (watchMode) {
+                return;
+            }
             process.exit(1);
         });
     return res.js
         .pipe(sourcemaps.write('.', {
-              // Return relative source map root directories per file.
-              includeContent: false
-            }))
+            includeContent: inline
+        }))
         .pipe(gulp.dest(config.tmp));
 }

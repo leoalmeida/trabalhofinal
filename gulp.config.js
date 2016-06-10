@@ -1,9 +1,15 @@
-var historyApiFallback = require('connect-history-api-fallback');
+var argv = require('yargs').argv;
+var environment = argv.env || 'dev';
+
+
+if (environment === 'dev') {
+    var historyApiFallback = require('connect-history-api-fallback');
+}
 var connectLogger = require("connect-logger");
 
 module.exports = function () {
     var root = '';
-    var src = root + '';
+    var src = root + 'src/';
     var app = src + 'app/';
     var test = src + 'test/';
     var tmp = src + 'tmp/';
@@ -47,38 +53,41 @@ module.exports = function () {
         path: 'report/'
     };
 
-    var browserSync = {
-        dev: {
-            port: process.env.PORT || 5000,
-            ui: {
-                port: 3002
+    if (environment === 'dev') {
+        var browserSync = {
+            dev: {
+                port: process.env.PORT || 5000,
+                ui: {
+                    port: 3002
+                },
+                server: {
+                    baseDir: './src/',
+                    middleware: [connectLogger(), historyApiFallback()],
+                    routes: {
+                        "/node_modules": "node_modules",
+                        "/src": "src"
+                    }
+                },
+                files: [
+                    src + "index.html",
+                    src + "systemjs.conf.js",
+                    src + "assets/styles/main.css",
+                    tmpApp + "**/*.js",
+                    app + "**/*.css",
+                    app + "**/*.html"
+                ]
             },
-            server: {
-                baseDir: './',
-                middleware: [connectLogger(), historyApiFallback()],
-                routes: {
-                    "/node_modules": "node_modules"
+            prod: {
+                port: process.env.PORT || 8080,
+                ui: {
+                    port: 8081
+                },
+                server: {
+                    baseDir: './' + build.path,
+                    middleware: [connectLogger(), historyApiFallback()]
                 }
-            },
-            files: [
-                src + "index.html",
-                src + "systemjs.conf.js",
-                src + "assets/styles/main.css",
-                tmpApp + "**/*.js",
-                app + "**/*.css",
-                app + "**/*.html"
-            ]
-        },
-        prod: {
-            port: process.env.PORT || 8080,
-            ui: {
-                port: 8081
-            },
-            server: {
-                baseDir: './' + build.path,
-                middleware: [connectLogger(), historyApiFallback()]
             }
-        }
+        };
     };
 
     var systemJs = {
@@ -111,6 +120,11 @@ module.exports = function () {
         browserSync: browserSync,
         systemJs: systemJs
     };
+
+    if (environment === 'dev')
+    {
+        config.browserSync = browserSync;
+    }
     
     return config;
 };

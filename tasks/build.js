@@ -1,14 +1,12 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var config = require('../gulp.config')();
-var inject = require('gulp-inject');
 var useref = require('gulp-useref');
 var gulpif = require('gulp-if');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
 var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
-var Builder = require('systemjs-builder');
 
 
 require('ngstarter-systemjs-tasks');
@@ -34,7 +32,7 @@ gulp.task('build-assets', function (done) {
             .pipe(cssnano())
             .pipe(gulp.dest(config.build.app));
 
-        gulp.src(config.src + 'favicon.png')
+        gulp.src(config.src + 'favicon.ico')
             .pipe(gulp.dest(config.build.path));
 
         gulp.src(config.assetsPath.imagens + '**/*.*', {
@@ -51,6 +49,7 @@ gulp.task('build-assets', function (done) {
             .pipe(revReplace())
             .pipe(gulp.dest(config.build.path))
             .on('finish', done);
+
     });
 });
 
@@ -78,7 +77,7 @@ gulp.task('others', function () {
             base: config.assetsPath.imgHD})
         .pipe(gulp.dest(config.build.imgHD));
 
-    gulp.src(config.src + 'favicon.png', {
+    gulp.src(config.src + 'favicon.ico', {
         base: config.src})
         .pipe(gulp.dest(config.build.path));
 
