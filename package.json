@@ -39,6 +39,7 @@
     "@angular/router-deprecated": "2.0.0-rc.1",
     "angular2-in-memory-web-api": "0.0.11",
     "bootstrap-sass": "^3.3.6",
+    "connect-history-api-fallback": "^1.2.0",
     "connect-logger": "^0.0.1",
     "del": "~2.2.0",
     "es6-shim": "^0.35.0",
@@ -67,10 +68,7 @@
     "traceur": "~0.0.110",
     "typings": "^1.0.4",
     "yargs": "^4.7.1",
-    "zone.js": "^0.6.12"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.12.8",
-    "connect-history-api-fallback": "^1.2.0"
+    "zone.js": "^0.6.12",
+    "browser-sync": "^2.12.8"
   }
 }
